@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Mise Digital builds precise, professional websites for growth-focused businesses. Clean design. Fast delivery. Built to convert." />
+  <title>Mise Digital — Everything In Its Place.</title>
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --line: rgba(255,255,255,.14);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1140px;
+      --pad: clamp(16px, 3vw, 28px);
+      --h1: clamp(38px, 5.2vw, 72px);
+      --h2: clamp(24px, 3.2vw, 40px);
+      --h3: clamp(18px, 2.2vw, 22px);
+      --p: clamp(16px, 1.5vw, 18px);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,.08), transparent 55%),
+                  radial-gradient(1000px 800px at 90% 15%, rgba(255,255,255,.06), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font: 500 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      letter-spacing: .2px;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px var(--pad) 72px; }
+
+    /* Top bar */
+    .top{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding: 14px var(--pad);
+      position: sticky; top:0; z-index:10;
+      backdrop-filter: blur(14px);
+      background: rgba(11,15,20,.70);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight: 800;
+      letter-spacing:.9px;
+      text-transform: uppercase;
+      font-size: 13px;
+      opacity:.95;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 0 0 6px rgba(255,255,255,.08);
+    }
+    .nav{
+      display:flex; gap:14px; align-items:center;
+      font-size: 13px; color: var(--muted);
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{ border-color: var(--line); color: var(--text); }
+
+    .cta{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing:.2px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.22); }
+    .btn.primary{
+      background: rgba(255,255,255,.92);
+      color: #0b0f14;
+      border-color: transparent;
+    }
+    .btn.primary:hover{ background: rgba(255,255,255,.98); }
+
+    /* Hero */
+    .hero{ padding: 58px 0 14px; }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .kicker strong{ color: var(--text); }
+    h1{
+      font-size: var(--h1);
+      line-height: 1.03;
+      margin: 0 0 14px;
+      letter-spacing: -1.2px;
+    }
+    .sub{
+      font-size: var(--p);
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 0 22px;
+    }
+    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin: 18px 0 22px; }
+
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:12px;
+      margin-top: 24px;
+    }
+    .metric{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 16px 16px;
+      box-shadow: var(--shadow);
+      min-height: 88px;
+    }
+    .metric .big{
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.7px;
+      margin-bottom: 4px;
+    }
+    .metric .label{
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    /* Sections */
+    section{ padding: 42px 0; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:start;
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    h2{
+      font-size: var(--h2);
+      margin: 0 0 10px;
+      letter-spacing: -0.7px;
+      line-height: 1.1;
+    }
+    h3{
+      font-size: var(--h3);
+      margin: 0 0 8px;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    p{ margin: 0 0 12px; color: var(--muted); font-size: var(--p); }
+
+    .list{
+      display:grid; gap:10px; margin: 14px 0 0;
+    }
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+    .check{
+      width: 22px; height: 22px; border-radius: 7px;
+      border: 1px solid rgba(255,255,255,.18);
+      display:grid; place-items:center;
+      margin-top: 1px;
+      flex: 0 0 auto;
+      color: rgba(255,255,255,.92);
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .service{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+    .service .tag{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .process{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .step{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      padding: 14px;
+      min-height: 140px;
+    }
+    .num{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      display:grid; place-items:center;
+      font-weight: 900;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .tier{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      padding: 16px;
+      position: relative;
+    }
+    .tier.featured{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.22);
+      transform: translateY(-2px);
+    }
+    .price{
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      margin: 8px 0 8px;
+    }
+    .tier ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tier li{ margin: 7px 0; }
+
+    /* Contact */
+    form{
+      display:grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    label{ font-size: 13px; color: var(--muted); }
+    input, textarea, select{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline: none;
+      font-size: 14px;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(255,255,255,.28);
+      background: rgba(0,0,0,.24);
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+
+    .footer{
+      margin-top: 44px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 940px){
+      .grid{ grid-template-columns: 1fr; }
+      .metrics{ grid-template-columns: 1fr; }
+      .process{ grid-template-columns: 1fr 1fr; }
+      .pricing{ grid-template-columns: 1fr; }
+      .services{ grid-template-columns: 1fr; }
+      .nav{ display:none; }
+    }
+    @media (max-width: 520px){
+      .process{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="top">
+    <a class="brand" href="#top" aria-label="Mise Digital home">
+      <span class="dot" aria-hidden="true"></span>
+      <span>MISE · DIGITAL</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="cta">
+      <a class="btn" href="#services">See what we build</a>
+      <a class="btn primary" href="#contact">Start your project →</a>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero" aria-label="Hero">
+      <div class="kicker">
+        <strong>Knoxville, TN</strong> · Serving clients nationwide
+      </div>
+
+      <h1>Everything<br>In Its Place.</h1>
+      <p class="sub">
+        Precise, professional websites for growth-focused businesses.
+        Clean design. Fast delivery. Built to convert visitors into customers.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="#contact">Start your project →</a>
+        <a class="btn" href="#work">See examples</a>
+      </div>
+
+      <div class="metrics" role="list" aria-label="Key highlights">
+        <div class="metric" role="listitem">
+          <div class="big">7</div>
+          <div class="label">Days to launch (when content is ready)</div>
+        </div>
+        <div class="metric" role="listitem">
+          <div class="big">$0</div>
+          <div class="label">Upfront retainers — pay for the build, not fluff</div>
+        </div>
+        <div class="metric" role="listitem">
+          <div class="big">100%</div>
+          <div class="label">Custom built — fast, modern, mobile-first</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" aria-label="Services">
+      <div class="grid">
+        <div class="card">
+          <h2>Websites that do their job.</h2>
+          <p>
+            Most sites look fine and still don’t produce leads. We build clean, structured pages
+            that make it obvious what you do, who it’s for, and what someone should do next.
+          </p>
+
+          <div class="list" aria-label="What you get">
+            <div class="li">
+              <div class="check">✓</div>
+              <div>
+                <h3>Conversion-first layout</h3>
+                <p>Clear offer + clear CTA. Phone calls, quote requests, bookings, or inquiries.</p>
+              </div>
+            </div>
+            <div class="li">
+              <div class="check">✓</div>
+              <div>
+                <h3>Fast load, mobile-first</h3>
+                <p>Built to feel sharp on phones. No slow bloated templates.</p>
+              </div>
+            </div>
+            <div class="li">
+              <div class="check">✓</div>
+              <div>
+                <h3>Local-ready foundations</h3>
+                <p>Basic on-page SEO structure + location signals for Knoxville and surrounding areas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Services</h3>
+          <p>Pick what you need. Keep it simple.</p>
+
+          <div class="services">
+            <div class="service">
+              <div class="tag">Build</div>
+              <h3>Custom Website</h3>
+              <p>1–5 pages. Clean design. Built to convert.</p>
+            </div>
+            <div class="service">
+              <div class="tag">Launch</div>
+              <h3>Landing Page</h3>
+              <p>Single page focused on one offer and one action.</p>
+            </div>
+            <div class="service">
+              <div class="tag">Catalog</div>
+              <h3>Product / Service Pages</h3>
+              <p>Structured pages for what you sell and how you sell it.</p>
+            </div>
+            <div class="service">
+              <div class="tag">Care</div>
+              <h3>Monthly Care Plan</h3>
+              <p>Edits, uptime checks, minor updates, basic SEO tune-ups.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn primary" href="#contact">Get a quote →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" aria-label="Work examples">
+      <div class="card">
+        <h2>Examples</h2>
+        <p>
+          Drop your real portfolio here later. For now, use these as placeholders.
+          Replace the titles and descriptions once you have 2–3 real projects.
+        </p>
+
+        <div class="services" style="margin-top:14px;">
+          <div class="service">
+            <div class="tag">Trade</div>
+            <h3>Knoxville HVAC Lead Site</h3>
+            <p>Single CTA. Quote form. Local service pages. Fast.</p>
+          </div>
+          <div class="service">
+            <div class="tag">Restaurant</div>
+            <h3>Bar / Restaurant Refresh</h3>
+            <p>Menu, events, catering form, and click-to-call.</p>
+          </div>
+          <div class="service">
+            <div class="tag">B2B</div>
+            <h3>Supplier / Dealer Catalog</h3>
+            <p>Product/service categories + inquiry workflow.</p>
+          </div>
+          <div class="service">
+            <div class="tag">Service</div>
+            <h3>Local Pro Services</h3>
+            <p>Credibility-first layout: reviews, before/after, booking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" aria-label="Process">
+      <div class="card">
+        <h2>Simple process. Fast delivery.</h2>
+        <p>No endless calls. No 12-week timelines. We ship.</p>
+
+        <div class="process">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Strategy</h3>
+            <p>We lock the offer, CTA, and structure. 20 minutes.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Build</h3>
+            <p>Design + development. Clean, responsive, modern.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Review</h3>
+            <p>One review round. Tight feedback. No chaos.</p>
+          </div>
+          <div class="step">
+            <div class="num">4</div>
+            <h3>Launch</h3>
+            <p>We go live. Then we optimize if you want ongoing care.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" aria-label="Pricing">
+      <div class="card">
+        <h2>Pricing</h2>
+        <p>Transparent ranges. Exact quote after a quick intake.</p>
+
+        <div class="pricing">
+          <div class="tier">
+            <h3>Starter</h3>
+            <div class="price">$1,250+</div>
+            <p>1-page landing site</p>
+            <ul>
+              <li>Mobile-first design</li>
+              <li>Contact form + click-to-call</li>
+              <li>Basic local structure</li>
+              <li>Fast turnaround</li>
+            </ul>
+          </div>
+
+          <div class="tier featured">
+            <h3>Growth</h3>
+            <div class="price">$2,500+</div>
+            <p>5-page business site</p>
+            <ul>
+              <li>Home + Services + About + Contact + FAQ</li>
+              <li>Conversion sections</li>
+              <li>On-page SEO basics</li>
+              <li>Launch checklist</li>
+            </ul>
+          </div>
+
+          <div class="tier">
+            <h3>Care Plan</h3>
+            <div class="price">$99–$249/mo</div>
+            <p>Ongoing support</p>
+            <ul>
+              <li>Edits & small updates</li>
+              <li>Uptime checks</li>
+              <li>Performance tune-ups</li>
+              <li>Basic SEO maintenance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <a class="btn primary" href="#contact">Request a quote →</a>
+          <a class="btn" href="#services" style="margin-left:8px;">See services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-label="Contact">
+      <div class="grid">
+        <div class="card">
+          <h2>Start your project</h2>
+          <p>
+            Tell me what you do, what you need, and what “success” looks like (calls, quotes, bookings, etc.).
+            If it’s not a fit, I’ll tell you straight.
+          </p>
+
+          <!-- Netlify Forms: works automatically on Netlify -->
+          <form name="project-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="project-intake" />
+            <p style="display:none;">
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div>
+              <label for="business">Business name</label>
+              <input id="business" name="business" type="text" required />
+            </div>
+
+            <div>
+              <label for="type">What are you?</label>
+              <select id="type" name="business_type" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Trade / Contractor</option>
+                <option>Restaurant / Bar</option>
+                <option>Service Business</option>
+                <option>Dealer / Supplier / B2B</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="goal">Main goal</label>
+              <select id="goal" name="goal" required>
+                <option value="" disabled selected>Select one</option>
+                <option>More phone calls</option>
+                <option>More quote requests</option>
+                <option>More bookings / appointments</option>
+                <option>Product/service inquiries</option>
+                <option>Just need a clean presence</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="budget">Budget range</label>
+              <select id="budget" name="budget" required>
+                <option value="" disabled selected>Select one</option>
+                <option>$1,250–$2,000</option>
+                <option>$2,000–$4,000</option>
+                <option>$4,000+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="details">Project details</label>
+              <textarea id="details" name="details" placeholder="What do you do? What pages do you need? Any examples you like?" required></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Send →</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Contact</h3>
+          <p style="margin-bottom:14px;">Replace these with your real info.</p>
+
+          <div class="list">
+            <div class="li">
+              <div class="check">☎</div>
+              <div>
+                <h3>Phone</h3>
+                <p><a href="tel:+18655551234">(865) 555-1234</a></p>
+              </div>
+            </div>
+
+            <div class="li">
+              <div class="check">@</div>
+              <div>
+                <h3>Email</h3>
+                <p><a href="mailto:hello@misedigital.com">hello@misedigital.com</a></p>
+              </div>
+            </div>
+
+            <div class="li">
+              <div class="check">⌁</div>
+              <div>
+                <h3>Location</h3>
+                <p>Knoxville, TN · Serving nationwide</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="#top">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" aria-label="Footer">
+      <div>© <span id="year"></span> Mise Digital. All rights reserved.</div>
+      <div>Built with precision.</div>
+    </footer>
+  </main>
+
+  <script>
+    // tiny enhancements
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal anchors (basic)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id.length < 2) return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', id);
+      });
+    });
+  </script>
+</body>
+</html>
