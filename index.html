@@ -29,8 +29,8 @@
       color: var(--text);
       background-color: var(--bg);
       background-image: 
-        radial-gradient(circle at 15% 0%, var(--glow), transparent 40%),
-        radial-gradient(circle at 85% 50%, rgba(94, 211, 255, 0.05), transparent 40%);
+        radial-gradient(900px 600px at 15% 0%, var(--glow), transparent 60%),
+        radial-gradient(700px 500px at 85% 50%, rgba(94, 211, 255, 0.05), transparent 60%);
       line-height: 1.5;
       overflow-x: hidden;
     }
@@ -43,24 +43,24 @@
     /* --- NAV --- */
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(5, 7, 12, 0.8);
+      background: rgba(5, 7, 12, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
     .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; color: inherit; }
     .brand svg { width: 32px; height: 32px; }
     
     nav.links { display: flex; gap: 8px; }
-    nav.links a { padding: 8px 16px; font-size: 13px; color: var(--muted); border-radius: 8px; transition: 0.2s; }
+    nav.links a { padding: 8px 16px; font-size: 13px; color: var(--muted); border-radius: 8px; transition: 0.2s; text-decoration: none; }
     nav.links a:hover { color: var(--accent); background: var(--panel); }
 
     /* --- BUTTONS --- */
     .btn {
       display: inline-flex; align-items: center; padding: 12px 24px; 
-      border-radius: 10px; font-size: 13px; font-weight: 700; 
+      border-radius: 10px; font-size: 13px; font-weight: 800; 
       text-transform: uppercase; cursor: pointer; transition: 0.2s; border: 1px solid var(--line);
-      background: var(--panel); color: var(--text); text-decoration: none;
+      background: var(--panel); color: var(--text); text-decoration: none; letter-spacing: 0.5px;
     }
     .btn.primary {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -73,45 +73,47 @@
     .pill { 
       display: inline-block; padding: 6px 16px; border-radius: 100px; 
       background: var(--panel); border: 1px solid var(--line); 
-      font-size: 12px; margin-bottom: 24px; color: var(--accent);
+      font-size: 12px; margin-bottom: 24px; color: var(--accent2); font-weight: 600;
     }
-    h1 { font-size: clamp(40px, 8vw, 80px); line-height: 1.1; margin: 0 0 24px; letter-spacing: -2px; }
-    .sub { max-width: 600px; margin: 0 auto 32px; color: var(--muted); font-size: 18px; }
+    h1 { font-size: clamp(40px, 8vw, 80px); line-height: 1.05; margin: 0 0 24px; letter-spacing: -2px; }
+    .sub { max-width: 650px; margin: 0 auto 32px; color: var(--muted); font-size: 19px; line-height: 1.6; }
 
     /* --- GRID & CARDS --- */
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
     .card { 
-      background: var(--panel); border: 1px solid var(--line); 
-      padding: 32px; border-radius: var(--r); position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent);
+      border: 1px solid var(--line); 
+      padding: 40px; border-radius: var(--r); position: relative;
     }
     .eyebrow { color: var(--accent2); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-    h2 { font-size: 32px; margin: 0 0 16px; letter-spacing: -1px; }
+    h2 { font-size: 36px; margin: 0 0 16px; letter-spacing: -1px; line-height: 1.2; }
 
     .feature-list { list-style: none; padding: 0; margin: 24px 0; }
-    .feature-list li { display: flex; gap: 12px; margin-bottom: 16px; font-size: 15px; color: var(--muted); }
+    .feature-list li { display: flex; gap: 14px; margin-bottom: 18px; font-size: 15px; color: var(--muted); }
     .feature-list b { color: var(--text); display: block; margin-bottom: 2px; }
     .check { color: var(--accent); font-weight: bold; }
 
     /* --- PRICING --- */
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px; }
     .tier { padding: 40px; border-radius: var(--r); border: 1px solid var(--line); background: rgba(255,255,255,0.02); }
-    .tier.featured { border-color: var(--accent); background: rgba(159, 230, 255, 0.03); }
-    .price { font-size: 48px; font-weight: 800; margin: 20px 0; }
-    .price span { font-size: 16px; color: var(--muted); font-weight: 400; }
+    .tier.featured { border-color: var(--accent); background: rgba(159, 230, 255, 0.04); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+    .price { font-size: 52px; font-weight: 800; margin: 20px 0; letter-spacing: -2px; }
+    .price span { font-size: 16px; color: var(--muted); font-weight: 400; letter-spacing: 0; }
 
     /* --- CONTACT FORM --- */
     form { display: grid; gap: 16px; }
     input, select, textarea { 
-      width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--line);
-      background: #000; color: #fff; font-family: inherit;
+      width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--line);
+      background: rgba(0,0,0,0.3); color: #fff; font-family: inherit; font-size: 15px;
     }
-    input:focus { border-color: var(--accent); outline: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; background: rgba(0,0,0,0.5); }
 
-    footer { padding: 40px 0; border-top: 1px solid var(--line); margin-top: 60px; color: var(--muted2); font-size: 13px; display: flex; justify-content: space-between; }
+    footer { padding: 40px 0; border-top: 1px solid var(--line); margin-top: 80px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; }
 
     @media (max-width: 850px) {
-      .grid { grid-template-columns: 1fr; }
+      .grid, .pricing-grid { grid-template-columns: 1fr; }
       nav.links { display: none; }
+      section { padding: 60px 0; }
     }
   </style>
 </head>
@@ -119,113 +121,125 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#">
-      <svg viewBox="0 0 64 64">
+    <a class="brand" href="#home">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
         <path fill="#9FE6FF" d="M32 6c-12.2 0-22 9.9-22 22v25.7c0 1.7 1.8 2.7 3.2 1.7l3.8-2.7a2 2 0 0 1 2.4 0l4.6 3.2a2 2 0 0 0 2.3 0l4.7-3.2a2 2 0 0 1 2.3 0l4.7 3.2a2 2 0 0 0 2.3 0l4.6-3.2a2 2 0 0 1 2.4 0l3.8 2.7c1.4 1 3.2 0 3.2-1.7V28C54 15.9 44.2 6 32 6z"/>
       </svg>
       <span>Ghost Digital <span style="color:var(--muted)">Co</span></span>
     </a>
     <nav class="links">
+      <a href="#offer">The Offer</a>
       <a href="#process">Process</a>
       <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
     </nav>
-    <a class="btn primary" href="#contact">Get Started</a>
+    <a class="btn primary" href="#contact">Start →</a>
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="home">
   <section class="hero">
-    <div class="pill fade">Based in Knoxville, TN</div>
+    <div class="pill fade">90-Day Sprint Offer Now Open</div>
     <h1 class="fade">Modern sites.<br>Real leads.</h1>
-    <p class="sub fade">I build sleek, high-performance websites for trades and service businesses that turn clicks into booked jobs.</p>
+    <p class="sub fade">I build sleek, conversion-first websites for Knoxville trades and service businesses. No bloat. No fluff. Built to convert.</p>
     <div class="fade">
-      <a href="#contact" class="btn primary">Start Your Build →</a>
+      <a href="#contact" class="btn primary">Get a Quote →</a>
+      <a href="#pricing" class="btn" style="margin-left:10px">View Pricing</a>
     </div>
   </section>
 
-  <div class="grid">
+  <div class="grid" id="offer">
     <div class="card fade">
-      <div class="eyebrow">The Strategy</div>
-      <h2>Built for Conversion.</h2>
-      <p style="color:var(--muted)">Most agency sites are "pretty" but confusing. I focus on the metrics that matter for your bottom line.</p>
+      <div class="eyebrow">The Trust Problem</div>
+      <h2>I fix "DIY" websites.</h2>
+      <p style="color:var(--muted)">If your site looks outdated, customers assume your work is too. I rebuild your presence to look like an industry leader.</p>
       <ul class="feature-list">
-        <li><span class="check">✓</span> <div><b>5-Second Clarity</b> Ensure visitors know exactly what you do.</div></li>
-        <li><span class="check">✓</span> <div><b>Mobile First</b> 80% of your leads are on their phones.</div></li>
-        <li><span class="check">✓</span> <div><b>Lightning Fast</b> No bloated builders. Just clean code.</div></li>
+        <li><span class="check">✓</span> <div><b>5-Second Clarity</b> Visitors know what you do immediately.</div></li>
+        <li><span class="check">✓</span> <div><b>Lead Focused</b> Built around calls and quote requests.</div></li>
+        <li><span class="check">✓</span> <div><b>High Velocity</b> Your site goes live in about a week.</div></li>
       </ul>
     </div>
     
-    <div class="card fade">
-      <div class="eyebrow">The 7-Day Sprint</div>
-      <h2>Stop waiting months.</h2>
-      <p style="color:var(--muted)">I run a tight 90-day cycle where I ship builds in a single week to gather case studies.</p>
-      <div style="margin-top:20px; border-left: 2px solid var(--accent); padding-left: 20px;">
-        <p><b>Day 1:</b> Strategic Intake</p>
-        <p><b>Day 2-5:</b> Development & Copy</p>
-        <p><b>Day 6-7:</b> Revisions & Launch</p>
+    <div class="card fade" id="process">
+      <div class="eyebrow">7-Day Build Cycle</div>
+      <h2>Fast delivery. No drag.</h2>
+      <p style="color:var(--muted)">I run a tight process so you can start getting leads while your competitors are still in "planning meetings."</p>
+      <div style="margin-top:24px; border-left: 2px solid var(--accent); padding-left: 24px;">
+        <p><b>Day 1:</b> Strategic intake & goal setting</p>
+        <p><b>Day 2-5:</b> Full build & custom copywriting</p>
+        <p><b>Day 6-7:</b> Final revision & launch</p>
       </div>
     </div>
   </div>
 
   <section id="pricing">
     <div class="eyebrow fade" style="text-align: center;">Transparent Pricing</div>
-    <h2 class="fade" style="text-align: center; font-size: 48px;">One flat fee.</h2>
+    <h2 class="fade" style="text-align: center; font-size: 48px;">Fixed rates. Zero surprises.</h2>
     <div class="pricing-grid">
       <div class="tier fade">
         <div class="eyebrow">The Build</div>
         <div class="price">$1,500<span>/one-time</span></div>
         <ul class="feature-list">
-          <li>• Professional 5-Page Site</li>
-          <li>• Lead Generation Forms</li>
-          <li>• Basic SEO Setup</li>
-          <li>• 7-Day Turnaround</li>
+          <li>• Professional 5-Page High-Speed Site</li>
+          <li>• Netlify Forms & Lead Capture</li>
+          <li>• On-Page SEO Foundations</li>
+          <li>• Mobile-First Design</li>
+          <li>• 1 Revision Round</li>
         </ul>
       </div>
       <div class="tier featured fade">
-        <div class="eyebrow">The Growth</div>
+        <div class="eyebrow">Site Care</div>
         <div class="price">$125<span>/mo</span></div>
         <ul class="feature-list">
-          <li>• Premium Hosting</li>
-          <li>• Monthly Content Edits</li>
-          <li>• Security & Backups</li>
-          <li>• Priority Support</li>
+          <li>• Premium Secure Hosting</li>
+          <li>• Minor Content Updates</li>
+          <li>• 24/7 Form Monitoring</li>
+          <li>• Quarterly Performance Reviews</li>
+          <li>• Zero-Downtime Guarantee</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <div class="card fade" style="max-width: 600px; margin: 0 auto;">
-      <div class="eyebrow">Contact</div>
-      <h2>Get a Quote.</h2>
-      <form action="#" method="POST">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <select required>
+    <div class="card fade" style="max-width: 650px; margin: 0 auto; background: var(--panel);">
+      <div class="eyebrow">Project Intake</div>
+      <h2>Let's build.</h2>
+      <p style="color:var(--muted); margin-bottom: 24px;">Fill this out and I'll send you a custom video audit of your current site (if you have one).</p>
+      
+      <form name="contact" method="POST" data-netlify="true">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <select name="business_type" required>
           <option value="" disabled selected>Business Type</option>
-          <option>HVAC / Plumbing</option>
+          <option>HVAC / Plumbing / Electrical</option>
           <option>Roofing / Construction</option>
-          <option>B2B / Professional</option>
+          <option>B2B Supplier / Dealer</option>
+          <option>Other Service Business</option>
         </select>
-        <textarea placeholder="Tell me about your project..." rows="4"></textarea>
-        <button type="submit" class="btn primary" style="width:100%; justify-content: center;">Send Message</button>
+        <textarea name="message" placeholder="What are your goals for the new site? (e.g., more quote requests, better mobile look...)" rows="4" required></textarea>
+        <button type="submit" class="btn primary" style="width:100%; justify-content: center;">Send Request →</button>
       </form>
     </div>
   </section>
 
   <footer>
     <div>© <span id="year"></span> Ghost Digital Co.</div>
-    <div>Knoxville, Tennessee</div>
+    <div>Modern Sites. Real Leads.</div>
   </footer>
 </main>
 
 <script>
+  // Dynamic Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Reveal Animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('show');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
     });
   }, { threshold: 0.1 });
 
