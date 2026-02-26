@@ -3,32 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Ghost Digital Co builds high-converting, premium websites for trades, services, and B2B suppliers. Knoxville, TN." />
-  <title>Ghost Digital Co | Premium Sites. High Conversion.</title>
+  <meta name="description" content="Ghost Digital Co builds premium, high-converting websites for trades, service businesses, and B2B suppliers. Knoxville, TN." />
+  <title>Ghost Digital Co | Premium Sites. Real Leads.</title>
 
   <style>
     :root {
-      /* Palette: Midnight + Ice Glow */
-      --bg: #040608;
-      --bg-alt: #080B10;
+      /* Ghost Palette: Midnight + Ice Glow */
+      --bg: #020406;
+      --bg-alt: #080B12;
       --surface: rgba(255, 255, 255, 0.03);
-      --surface-hover: rgba(255, 255, 255, 0.06);
       --border: rgba(255, 255, 255, 0.08);
-      --text: #F0F2F5;
+      --text: #F8FAFC;
       --text-muted: #94A3B8;
       --accent: #9FE6FF;
-      --accent-glow: rgba(159, 230, 255, 0.15);
+      --accent-glow: rgba(159, 230, 255, 0.12);
       --radius: 12px;
       --font: "Inter", system-ui, -apple-system, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    html { 
-      scroll-behavior: smooth; 
-      background: var(--bg);
-    }
-
+    html { scroll-behavior: smooth; background: var(--bg); }
     body {
       font-family: var(--font);
       background: var(--bg);
@@ -38,171 +32,97 @@
       overflow-x: hidden;
     }
 
-    /* Subtle mesh background */
-    .mesh-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: 
-        radial-gradient(circle at 20% 20%, var(--accent-glow) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(94, 211, 255, 0.05) 0%, transparent 40%);
+    /* Ambient Glow Overlay */
+    .glow {
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 100%; height: 800px;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 70%);
       z-index: -1;
       pointer-events: none;
     }
 
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
     section { padding: 120px 0; }
 
     /* TYPOGRAPHY */
-    h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-    h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 24px; }
-    h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 40px; }
-    p.lead { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 32px; }
+    h1, h2, h3 { font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; }
+    h1 { font-size: clamp(3rem, 8vw, 5.5rem); margin-bottom: 24px; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 40px; }
+    .lead { font-size: 1.25rem; color: var(--text-muted); max-width: 680px; margin-bottom: 48px; }
+    
     .eyebrow { 
       text-transform: uppercase; 
       font-size: 0.75rem; 
-      letter-spacing: 0.2em; 
+      letter-spacing: 0.3em; 
       color: var(--accent); 
       margin-bottom: 16px; 
       display: block;
       font-weight: 800;
     }
 
-    /* HEADER (NOT STICKY) */
-    header {
-      padding: 32px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    /* NAV (NOT STICKY) */
+    header { padding: 40px 0; border-bottom: 1px solid var(--border); }
     .nav { display: flex; align-items: center; justify-content: space-between; }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-    .logo-mark { width: 32px; height: 32px; filter: drop-shadow(0 0 8px var(--accent-glow)); }
-    .logo-text { font-weight: 800; letter-spacing: 0.1em; font-size: 0.9rem; }
+    .logo { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); }
+    .logo-text { font-weight: 900; letter-spacing: 0.2em; font-size: 0.85rem; }
 
     /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
-      padding: 14px 28px;
-      border-radius: var(--radius);
+      padding: 16px 36px;
+      border-radius: 8px;
       font-weight: 700;
       text-decoration: none;
-      transition: all 0.2s ease;
-      font-size: 0.95rem;
-      border: 1px solid transparent;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      font-size: 1rem;
       cursor: pointer;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px var(--accent-glow);
-    }
-    .btn-secondary {
-      background: var(--surface);
-      border-color: var(--border);
-      color: var(--text);
-    }
-    .btn-secondary:hover {
-      background: var(--surface-hover);
-      border-color: var(--accent);
-    }
+    .btn-primary { background: var(--accent); color: #020406; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px var(--accent-glow); filter: brightness(1.1); }
+    .btn-secondary { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { background: var(--border); border-color: var(--accent); }
 
-    /* HERO */
-    .hero { text-align: left; padding-top: 80px; }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    /* PROBLEM SECTION */
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .card {
-      background: var(--surface);
+    /* GRID / BENTO SYSTEM */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .bento {
+      background: linear-gradient(145deg, var(--bg-alt), var(--bg));
       border: 1px solid var(--border);
-      padding: 40px;
+      padding: 48px;
       border-radius: var(--radius);
-      backdrop-filter: blur(10px);
+      position: relative;
     }
-    .check-list { list-style: none; margin-top: 24px; }
-    .check-list li { 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
-      margin-bottom: 12px; 
-      color: var(--text-muted);
-    }
-    .check-list svg { color: var(--accent); flex-shrink: 0; }
 
     /* PROCESS */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .step { position: relative; }
-    .step-num { 
-      font-size: 3rem; 
-      font-weight: 900; 
-      opacity: 0.1; 
-      position: absolute; 
-      top: -20px; 
-      left: 0; 
-      color: var(--accent);
-    }
-    .step h3 { margin-bottom: 12px; position: relative; z-index: 1; }
-
-    /* WHAT WE BUILD */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .feature-box {
-      border: 1px solid var(--border);
-      padding: 32px;
-      border-radius: var(--radius);
-      transition: 0.3s;
-    }
-    .feature-box:hover {
-      background: var(--bg-alt);
-      border-color: var(--accent);
-    }
+    .process-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .step { border-left: 1px solid var(--border); padding-left: 24px; }
+    .step h3 { font-size: 1.4rem; margin-bottom: 12px; }
+    .step p { color: var(--text-muted); font-size: 0.95rem; }
 
     /* PRICING */
-    .pricing-wrap {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; max-width: 900px; margin: 0 auto; }
     .price-card {
-      text-align: center;
-      padding: 48px 32px;
+      padding: 60px 48px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background: var(--bg-alt);
+      text-align: center;
     }
-    .price-card.featured {
-      border-color: var(--accent);
-      box-shadow: 0 0 30px rgba(159, 230, 255, 0.05);
-    }
-    .amt { font-size: 3.5rem; font-weight: 800; margin: 16px 0; display: block; }
-    .amt span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    .price-card.featured { border-color: var(--accent); background: linear-gradient(180deg, rgba(159,230,255,0.02) 0%, transparent 100%); }
+    .amount { font-size: 4.5rem; font-weight: 800; margin: 16px 0; color: #fff; }
+    .amount span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    .price-card ul { list-style: none; margin-bottom: 40px; text-align: left; }
+    .price-card li { margin-bottom: 16px; color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: flex-start; gap: 12px; }
+    .price-card li::before { content: "—"; color: var(--accent); font-weight: 800; }
 
     /* CONTACT FORM */
-    .contact-container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .form-group { margin-bottom: 20px; }
-    label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; color: var(--text-muted); text-transform: uppercase; }
+    .contact-container { max-width: 600px; margin: 0 auto; }
+    .field { margin-bottom: 24px; }
+    label { display: block; font-size: 0.75rem; font-weight: 800; margin-bottom: 8px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
     input, textarea, select {
       width: 100%;
-      padding: 14px;
+      padding: 16px;
       background: var(--bg-alt);
       border: 1px solid var(--border);
       color: var(--text);
@@ -212,180 +132,143 @@
     }
     input:focus, textarea:focus { border-color: var(--accent); }
 
-    footer { padding: 48px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+    footer { padding: 60px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
 
-    /* RESPONSIVE */
-    @media (max-width: 860px) {
-      .problem-grid, .steps { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .grid, .process-row { grid-template-columns: 1fr; gap: 40px; }
       section { padding: 80px 0; }
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      .reveal {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.8s ease-out;
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <div class="mesh-bg"></div>
+  <div class="glow"></div>
 
   <header>
     <div class="wrap nav">
       <a href="#" class="logo">
-        <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 5C11.7157 5 5 11.7157 5 20V32C5 33.6569 6.34315 35 8 35H12L15 32L18 35H22L25 32L28 35H32C33.6569 35 35 33.6569 35 32V20C35 11.7157 28.2843 5 20 5Z" fill="var(--accent)"/>
-          <circle cx="14" cy="18" r="2" fill="#040608"/>
-          <circle cx="26" cy="18" r="2" fill="#040608"/>
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+          <path d="M20 4C11.1634 4 4 11.1634 4 20V32C4 33.6569 5.34315 35 7 35H11L15 31L19 35H23L27 31L31 35H35C36.6569 35 38 33.6569 38 32V20C38 11.1634 30.8366 4 20 4Z" fill="var(--accent)"/>
         </svg>
         <span class="logo-text">GHOST · DIGITAL CO</span>
       </a>
-      <a href="#contact" class="btn btn-secondary" style="padding: 10px 20px;">Get Started</a>
+      <a href="#contact" class="btn btn-secondary" style="padding: 10px 24px; font-size: 0.85rem;">Get a Quote</a>
     </div>
   </header>
 
   <main>
-    <section class="hero wrap">
+    <section class="wrap reveal">
       <span class="eyebrow">Knoxville, Tennessee</span>
-      <h1>Websites that <br><span style="color: var(--accent);">capture revenue.</span></h1>
-      <p class="lead">We build sleek, high-performance websites for trades, service businesses, and B2B suppliers. Stop losing leads to outdated design.</p>
+      <h1>Websites that turn <br><span style="color: var(--accent);">traffic into revenue.</span></h1>
+      <p class="lead">We build premium, high-conversion sites for trades and B2B suppliers. Stop losing leads to outdated design. Get a lead engine built in 7–10 days.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Start Your Build</a>
         <a href="#pricing" class="btn btn-secondary">View Pricing</a>
       </div>
     </section>
 
-    <section id="problem" class="wrap reveal">
-      <div class="problem-grid">
+    <section class="wrap reveal">
+      <div class="grid">
         <div>
           <span class="eyebrow">The Simple Problem</span>
-          <h2>Your website isn't earning trust.</h2>
-          <p style="color: var(--text-muted); font-size: 1.1rem;">In five seconds, a visitor decides if they’ll call you or your competitor. If your site looks dated, they assume your work is too.</p>
-          <ul class="check-list">
-            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Clean, modern trust signals</li>
-            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Mobile-first lead architecture</li>
-            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Blazing fast load speeds</li>
-          </ul>
+          <h2>Your website isn't earning trust fast enough.</h2>
+          <p style="color: var(--text-muted); font-size: 1.15rem;">Visitors decide to call you (or your competitor) in under five seconds. If your site feels generic or slow, you've already lost the job. We solve the trust gap with premium design that forces action.</p>
         </div>
-        <div class="card">
-          <h3 style="margin-bottom:12px">Conversion First</h3>
-          <p style="color: var(--text-muted)">We don't build "art projects." We build tools that make the phone ring. Every layout, button, and headline is designed to drive inquiries.</p>
+        <div class="bento">
+          <h3 style="margin-bottom:12px; color: var(--accent);">Focused on One Outcome</h3>
+          <p style="color: var(--text-muted)">We don't build digital brochures. We build conversion machines. Every pixel is aimed at making the phone ring or the quote form fire.</p>
         </div>
       </div>
     </section>
 
     <section id="process" class="wrap reveal">
-      <span class="eyebrow">How we move</span>
-      <h2>Simple process. No fluff.</h2>
-      <div class="steps">
+      <span class="eyebrow">Execution</span>
+      <h2>A 10-day sprint to launch.</h2>
+      <div class="process-row">
         <div class="step">
-          <span class="step-num">01</span>
-          <h3>Strategy</h3>
-          <p style="color: var(--text-muted)">We identify your primary conversion goal and map out a clean, 5-page structure.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">02</span>
-          <h3>Execution</h3>
-          <p style="color: var(--text-muted)">We build your high-performance site in our "midnight" aesthetic, optimized for SEO and speed.</p>
+          <h3>01. Intake</h3>
+          <p>We define your core service offerings, service area, and primary conversion goal.</p>
         </div>
         <div class="step">
-          <span class="step-num">03</span>
-          <h3>Launch</h3>
-          <p style="color: var(--text-muted)">Final polish, one revision round, and we go live. Most builds take less than 14 days.</p>
+          <h3>02. Build</h3>
+          <p>Custom design and architecture. We handle the copywriting, speed optimization, and SEO foundation.</p>
         </div>
-      </div>
-    </section>
-
-    <section id="build" class="wrap reveal">
-      <span class="eyebrow">Key Features</span>
-      <h2>Everything you need.</h2>
-      <div class="feature-grid">
-        <div class="feature-box">
-          <h3>Lead Forms</h3>
-          <p style="color: var(--text-muted)">Frictionless quote requests delivered straight to your inbox.</p>
-        </div>
-        <div class="feature-box">
-          <h3>Local SEO</h3>
-          <p style="color: var(--text-muted)">Properly structured for Google to find your service areas.</p>
-        </div>
-        <div class="feature-box">
-          <h3>Trust Blocks</h3>
-          <p style="color: var(--text-muted)">Strategic placement for reviews, licenses, and case studies.</p>
-        </div>
-        <div class="feature-box">
-          <h3>Mobile Mastery</h3>
-          <p style="color: var(--text-muted)">Perfect performance for customers searching on the job site.</p>
+        <div class="step">
+          <h3>03. Deploy</h3>
+          <p>One revision round, domain connection, and launch. Your new lead engine is live.</p>
         </div>
       </div>
     </section>
 
     <section id="pricing" class="wrap reveal">
       <div style="text-align: center; margin-bottom: 60px;">
-        <span class="eyebrow">Flat Pricing</span>
-        <h2>No ranges. No surprises.</h2>
+        <span class="eyebrow">Investment</span>
+        <h2>Flat pricing. No surprises.</h2>
       </div>
-      <div class="pricing-wrap">
+      <div class="pricing-grid">
         <div class="price-card">
-          <span class="eyebrow">The Build</span>
-          <h3>Core Website</h3>
-          <span class="amt">$1,500</span>
-          <p style="color: var(--text-muted); margin-bottom: 24px;">One-time investment for a complete 5-page conversion engine.</p>
-          <a href="#contact" class="btn btn-secondary" style="width: 100%">Choose Build</a>
+          <span class="eyebrow">Project</span>
+          <h3>The Build</h3>
+          <div class="amount">$1,500</div>
+          <ul>
+            <li>Premium 5-Page Lead Engine</li>
+            <li>Conversion Architecture</li>
+            <li>Basic Local SEO Setup</li>
+            <li>7–10 Day Delivery</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center;">Start Build</a>
         </div>
         <div class="price-card featured">
           <span class="eyebrow">Monthly</span>
           <h3>Site Care</h3>
-          <span class="amt">$125<span>/mo</span></span>
-          <p style="color: var(--text-muted); margin-bottom: 24px;">Premium hosting, security updates, and unlimited minor edits.</p>
-          <a href="#contact" class="btn btn-primary" style="width: 100%">Add Care</a>
+          <div class="amount">$125<span>/mo</span></div>
+          <ul>
+            <li>Premium Secure Hosting</li>
+            <li>Monthly Security Monitoring</li>
+            <li>Up to 2 content edits/mo</li>
+            <li>Priority Support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Add Care</a>
         </div>
       </div>
     </section>
 
     <section id="contact" class="wrap reveal">
       <div class="contact-container">
-        <div style="text-align: center; margin-bottom: 40px;">
-          <span class="eyebrow">Project Intake</span>
-          <h2>Start your conversion.</h2>
-          <p style="color: var(--text-muted)">Tell us about your business. We'll respond within 24 hours.</p>
+        <div style="text-align: center; margin-bottom: 48px;">
+          <span class="eyebrow">Inquiry</span>
+          <h2>Request a quote.</h2>
+          <p style="color: var(--text-muted)">Tell us about your project. We respond within one business day.</p>
         </div>
         
         <form name="project-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="project-intake" />
-          <p style="display:none">
-            <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-          </p>
+          <p style="display:none"><label><input name="bot-field" /></label></p>
           
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="John Doe" />
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
           </div>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="john@company.com" />
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required />
           </div>
-
-          <div class="form-group">
-            <label for="type">Business Type</label>
-            <select id="type" name="business-type">
-              <option value="trades">Home Trades (HVAC, Plumbing, etc)</option>
-              <option value="b2b">B2B Supplier</option>
-              <option value="service">Professional Services</option>
-              <option value="other">Other</option>
+          <div class="field">
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry">
+              <option value="trades">Home Trades (HVAC, Electrical, etc)</option>
+              <option value="b2b">B2B / Supplier</option>
+              <option value="service">Other Professional Service</option>
             </select>
           </div>
-          
-          <div class="form-group">
-            <label for="message">Project Details</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your current site and goals..."></textarea>
+          <div class="field">
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Project goals, timeline, or current website..."></textarea>
           </div>
           
           <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Project Request</button>
@@ -394,26 +277,19 @@
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p>&copy; 2024 Ghost Digital Co. | Modern Sites. Real Leads.</p>
+  <footer class="wrap">
+    <div>&copy; <span id="year"></span> Ghost Digital Co. | Knoxville, TN</div>
+    <div style="display: flex; gap: 32px;">
+      <a href="#process" style="color: inherit; text-decoration: none;">Process</a>
+      <a href="#pricing" style="color: inherit; text-decoration: none;">Pricing</a>
     </div>
   </footer>
 
   <script>
-    // Scroll Reveal Animation
-    const observerOptions = {
-      threshold: 0.1
-    };
-
+    document.getElementById('year').textContent = new Date().getFullYear();
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
