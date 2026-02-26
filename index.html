@@ -1,539 +1,717 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ghost Digital Co builds precise, professional websites for businesses serious about growth. Based in Knoxville, TN.">
-<title>Ghost Digital Co — Powerful. Invisible. Effective. | Knoxville, TN</title>
-<style>
-:root{
-  --black:#050810;
-  --dark:#0A0F1A;
-  --steel:#111827;
-  --blue:#2563EB;
-  --blue-bright:#3B82F6;
-  --blue-glow:#60A5FA;
-  --silver:#94A3B8;
-  --muted:#475569;
-  --light:#F1F5F9;
-  --gray:#1E293B;
-  --white:#FFFFFF;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--white);color:var(--gray);overflow-x:hidden}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ghost Digital Co builds sleek, conversion-first websites for Knoxville businesses and beyond. Clean. Fast. Built to convert." />
+  <title>Ghost Digital Co | Knoxville, TN</title>
 
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;background:rgba(5,8,16,.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid rgba(37,99,235,.3)}
-.nav-logo{text-decoration:none;display:flex;align-items:center;gap:10px}
-.nm{font-size:22px;font-weight:900;letter-spacing:6px;color:var(--white);text-transform:uppercase}
-.ns{width:6px;height:6px;background:var(--blue-bright);border-radius:50%;box-shadow:0 0 8px var(--blue-bright);animation:pulse 2s infinite}
-.nd{font-size:10px;font-weight:400;letter-spacing:5px;color:var(--muted);text-transform:uppercase}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 6px var(--blue-bright)}50%{opacity:.6;box-shadow:0 0 16px var(--blue-bright)}}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--blue-glow)}
-.ncta{background:var(--blue)!important;color:var(--white)!important;padding:10px 26px;transition:all .2s!important;box-shadow:0 0 20px rgba(37,99,235,.4)}
-.ncta:hover{background:var(--blue-bright)!important;box-shadow:0 0 30px rgba(59,130,246,.6)!important}
+  <style>
+    :root{
+      --bg: #0A1020;              /* deep navy */
+      --panel: rgba(255,255,255,.05);
+      --panel2: rgba(255,255,255,.075);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(168,190,220,.72);
+      --line: rgba(140,180,255,.16);
 
-#home{min-height:100vh;background:var(--black);display:flex;align-items:center;padding-top:70px;position:relative;overflow:hidden}
-.hgb{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.06) 1px,transparent 1px);background-size:60px 60px}
-.hgb2{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.03) 1px,transparent 1px);background-size:12px 12px}
-.hgl{position:absolute;right:-10%;top:50%;transform:translateY(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(37,99,235,.18) 0%,transparent 60%);pointer-events:none;animation:glow 6s ease-in-out infinite}
-.hgl2{position:absolute;left:-5%;bottom:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.1) 0%,transparent 65%);pointer-events:none}
-@keyframes glow{0%,100%{opacity:.8;transform:translateY(-50%) scale(1)}50%{opacity:1;transform:translateY(-52%) scale(1.05)}}
-.hi{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:100px 48px;width:100%}
-.hew{display:inline-flex;align-items:center;gap:14px;margin-bottom:36px;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.25);padding:8px 18px}
-.hel{width:20px;height:2px;background:var(--blue-bright)}
-.hew span{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue-glow)}
-#home h1{font-size:clamp(56px,9vw,118px);font-weight:900;line-height:.88;color:var(--white);letter-spacing:-2px;text-transform:uppercase;margin-bottom:40px}
-#home h1 em{font-style:normal;display:block;background:linear-gradient(135deg,var(--blue-bright) 0%,var(--blue-glow) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hsub{font-size:18px;font-weight:300;color:var(--silver);max-width:500px;line-height:1.8;margin-bottom:52px;padding-left:20px;border-left:2px solid var(--blue-bright)}
-.hbtns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:80px}
-.btn-blue{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:var(--white);font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:18px 44px;text-decoration:none;transition:all .25s;box-shadow:0 4px 24px rgba(37,99,235,.5)}
-.btn-blue:hover{background:var(--blue-bright);transform:translateY(-3px);box-shadow:0 8px 32px rgba(59,130,246,.6)}
-.btn-out{display:inline-flex;align-items:center;background:transparent;color:var(--white);font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:18px 44px;border:1px solid rgba(148,163,184,.25);text-decoration:none;transition:all .25s}
-.btn-out:hover{border-color:var(--blue-bright);color:var(--blue-glow);transform:translateY(-3px)}
-.hproof{display:inline-flex;flex-wrap:wrap;border:1px solid rgba(37,99,235,.2)}
-.pi{padding:24px 40px;border-right:1px solid rgba(37,99,235,.2)}
-.pi:last-child{border-right:none}
-.pn{font-size:36px;font-weight:900;color:var(--white);line-height:1;margin-bottom:4px}
-.pn-blue{color:var(--blue-bright)}
-.pl{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+      --blue: #2F7BFF;
+      --blue2:#1E5FE6;
+      --glow: rgba(47,123,255,.18);
 
-.mq{background:var(--steel);overflow:hidden;white-space:nowrap;border-top:1px solid rgba(37,99,235,.2);border-bottom:1px solid rgba(37,99,235,.2)}
-.mq-inner{display:flex;align-items:center;height:48px}
-.mqi{display:inline-flex;align-items:center;animation:mqanim 32s linear infinite}
-.mqt{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--silver);padding:0 32px}
-.mqs{color:var(--blue-bright);font-size:14px}
-@keyframes mqanim{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+      --r: 16px;
+      --max: 1160px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+    }
 
-.sec{padding:120px 48px}
-.con{max-width:1200px;margin:0 auto}
-.ey{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue-bright);margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.ey::before{content:'';width:24px;height:2px;background:var(--blue-bright);flex-shrink:0}
-.st{font-size:clamp(36px,4.5vw,60px);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-1px;color:var(--gray);margin-bottom:24px}
-.st.lt{color:var(--white)}
-.sb{font-size:17px;font-weight:300;color:#64748B;line-height:1.8;max-width:540px}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(900px 600px at 18% -10%, var(--glow), transparent 60%),
+        radial-gradient(700px 520px at 88% 0%, rgba(47,123,255,.12), transparent 60%),
+        radial-gradient(900px 700px at 50% 110%, rgba(255,255,255,.05), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+    }
 
-#process{background:var(--light)}
-.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:64px}
-.pc{background:var(--white);padding:48px 32px;position:relative;transition:all .3s;overflow:hidden}
-.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-glow));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.pc:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(37,99,235,.12)}
-.pc:hover::before{transform:scaleX(1)}
-.pnum{font-size:64px;font-weight:900;color:rgba(37,99,235,.1);line-height:1;margin-bottom:20px}
-.pc h3{font-size:18px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:12px}
-.pc p{font-size:14px;color:#64748B;line-height:1.7}
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
 
-#work{background:var(--dark)}
-.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
-.wc{background:rgba(255,255,255,.03);padding:44px 36px;border:1px solid rgba(37,99,235,.12);transition:all .3s;position:relative;overflow:hidden}
-.wc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-glow));transform:scaleX(0);transition:transform .4s}
-.wc:hover{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.3);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.wc:hover::after{transform:scaleX(1)}
-.wc:hover .wt{color:var(--white)}
-.wc:hover .wb{color:var(--silver)}
-.wi{width:56px;height:56px;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:24px;transition:all .3s}
-.wt{font-size:19px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--white);margin-bottom:12px;transition:color .3s}
-.wb{font-size:14px;color:var(--silver);line-height:1.7;transition:color .3s;margin-bottom:20px}
-.wlist{list-style:none;display:flex;flex-direction:column;gap:8px}
-.wlist li{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;transition:color .3s}
-.wlist li::before{content:'';width:5px;height:5px;background:var(--blue-bright);border-radius:50%;flex-shrink:0;box-shadow:0 0 4px var(--blue-bright)}
-.wc:hover .wlist li{color:var(--silver)}
+    /* NAV */
+    header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      background: rgba(10,16,32,.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      height: 72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight: 950;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      font-size: 13px;
+      white-space:nowrap;
+    }
+    .brand small{
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      color: rgba(168,190,220,.65);
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-left: 6px;
+    }
 
-.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px}
-.who-card{background:rgba(255,255,255,.02);border:1px solid rgba(37,99,235,.12);padding:36px;transition:all .3s}
-.who-card:hover{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.3)}
-.who-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-bright);margin-bottom:12px}
-.who-title{font-size:18px;font-weight:800;color:var(--white);margin-bottom:10px}
-.who-body{font-size:14px;color:var(--muted);line-height:1.65}
+    .links{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .links a{
+      padding: 10px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
+    }
+    .links a:hover{
+      background: rgba(255,255,255,.04);
+      border-color: rgba(140,180,255,.22);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
 
-#pricing{background:var(--black);position:relative;overflow:hidden}
-#pricing::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
-.prgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px;position:relative;z-index:1}
-.prc{background:rgba(255,255,255,.03);padding:52px 40px;border:1px solid rgba(255,255,255,.06);transition:all .3s}
-.prc:not(.feat):hover{transform:translateY(-6px);border-color:rgba(37,99,235,.3);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-.prc.feat{background:var(--blue);border-color:var(--blue);box-shadow:0 0 60px rgba(37,99,235,.3)}
-.pbadge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-glow);background:rgba(37,99,235,.15);padding:5px 14px;margin-bottom:28px;border:1px solid rgba(37,99,235,.3)}
-.pbadge.f{color:var(--white);background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3)}
-.prname{font-size:26px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--white);margin-bottom:12px}
-.pram{font-size:68px;font-weight:900;line-height:1;color:var(--white);margin-bottom:6px;letter-spacing:-2px}
-.prsup{font-size:28px;vertical-align:top;margin-top:10px;display:inline-block;letter-spacing:0}
-.prnote{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:36px;letter-spacing:1px;text-transform:uppercase}
-.prdiv{height:1px;background:rgba(255,255,255,.08);margin-bottom:32px}
-.prdiv.f{background:rgba(255,255,255,.2)}
-.prft{list-style:none;margin-bottom:44px}
-.prft li{font-size:14px;color:rgba(255,255,255,.75);padding:10px 0;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.04)}
-.prft li::before{content:'';width:6px;height:6px;background:var(--blue-bright);border-radius:50%;flex-shrink:0;box-shadow:0 0 6px var(--blue-bright)}
-.prc.feat .prft li::before{background:rgba(255,255,255,.8);box-shadow:none}
-.prbtn{display:block;width:100%;text-align:center;font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:18px;text-decoration:none;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.2);transition:all .25s;cursor:pointer;font-family:inherit}
-.prbtn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
-.prbtn.f{background:var(--black);border-color:var(--black)}
-.prbtn.f:hover{background:var(--steel)}
-.retnote{margin-top:48px;padding:32px 40px;background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);display:flex;align-items:center;gap:28px;flex-wrap:wrap;position:relative;z-index:1}
-.retnote p{font-size:15px;color:var(--silver);line-height:1.6;flex:1}
-.retnote strong{color:var(--blue-glow)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(140,180,255,.28); }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      border-color: transparent;
+    }
+    .btn.primary:hover{ background: linear-gradient(135deg, #3A86FF, var(--blue2)); }
 
-#about{background:var(--light)}
-.abgrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.abbox{background:var(--dark);padding:64px 56px;position:relative;overflow:hidden}
-.abbox::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.15) 0%,transparent 65%)}
-.abbox::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-glow))}
-.abq{font-size:38px;font-weight:900;line-height:1.05;color:var(--white);text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1;letter-spacing:-1px}
-.abq em{font-style:normal;background:linear-gradient(135deg,var(--blue-bright),var(--blue-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.abs{font-size:14px;color:var(--silver);line-height:1.75;position:relative;z-index:1}
-.abtag{position:absolute;bottom:0;right:0;background:var(--blue);padding:12px 20px;z-index:2}
-.abtag p{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white)}
-.abpts{margin-top:44px}
-.abpt{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid rgba(30,41,59,.08)}
-.abico{width:44px;height:44px;background:var(--white);border:1px solid rgba(37,99,235,.15);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.abpt h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:6px}
-.abpt p{font-size:14px;color:#64748B;line-height:1.65}
+    .drawer{
+      display:none;
+      padding: 0 0 18px;
+    }
+    .drawer a{
+      display:block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(140,180,255,.12);
+      color: var(--muted);
+    }
+    .drawer a:hover{ color: var(--text); }
 
-#contact{background:var(--steel);position:relative;overflow:hidden}
-#contact::before{content:'';position:absolute;bottom:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.1) 0%,transparent 65%);pointer-events:none}
-.ctgrid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;margin-top:64px;position:relative;z-index:1}
-.ctl h3{font-size:26px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:32px}
-.cdet{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px}
-.cdico{width:44px;height:44px;background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.25);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.cdlbl{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-glow);margin-bottom:4px}
-.cdval{font-size:15px;font-weight:500;color:var(--white)}
-.cdval a{color:var(--white);text-decoration:none}
-.cdval a:hover{color:var(--blue-glow)}
-.free-box{margin-top:40px;padding:28px;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.25)}
-.free-box h4{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:10px}
-.free-box p{font-size:14px;color:var(--silver);line-height:1.65}
-.fg{margin-bottom:16px}
-.fg label{display:block;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.fg input,.fg select,.fg textarea{width:100%;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(148,163,184,.1);border-bottom:2px solid rgba(148,163,184,.1);font-family:inherit;font-size:15px;color:var(--white);outline:none;transition:all .2s}
-.fg input::placeholder,.fg textarea::placeholder{color:rgba(148,163,184,.25)}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue-bright);background:rgba(37,99,235,.06)}
-.fg select option{background:var(--steel)}
-.fg textarea{min-height:120px;resize:vertical}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.fsub{width:100%;margin-top:10px;background:var(--blue);border:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--white);padding:20px;transition:all .25s;box-shadow:0 4px 20px rgba(37,99,235,.4)}
-.fsub:hover{background:var(--blue-bright);transform:translateY(-2px)}
+    /* HERO */
+    section{ padding: 70px 0; }
+    .hero{ padding: 72px 0 40px; }
 
-footer{background:var(--black);border-top:1px solid rgba(37,99,235,.2);padding:60px 48px 28px}
-.ftop{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;max-width:1200px;margin:0 auto 48px}
-.fbn{font-size:24px;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--white);margin-bottom:12px}
-.fbn span{background:linear-gradient(135deg,var(--blue-bright),var(--blue-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.ftag{font-size:10px;font-weight:400;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-.fdesc{font-size:14px;color:#334155;line-height:1.75}
-.fcol h4{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
-.fcol ul{list-style:none}
-.fcol ul li{margin-bottom:12px}
-.fcol ul li a{font-size:14px;color:#334155;text-decoration:none;transition:color .2s}
-.fcol ul li a:hover{color:var(--blue-glow)}
-.fbot{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.fbot p{font-size:12px;color:#1E293B}
-.fbot span{color:var(--blue-bright)}
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(140,180,255,.18);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .pill strong{ color: var(--text); }
 
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s ease,transform .7s ease}
-.reveal-left.visible{opacity:1;transform:translateX(0)}
+    h1{
+      margin: 0 0 14px;
+      font-size: clamp(42px, 6.2vw, 86px);
+      line-height: 1.02;
+      letter-spacing: -1.2px;
+    }
+    .sub{
+      margin: 0 0 18px;
+      max-width: 720px;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
 
-@media(max-width:900px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  .sec{padding:80px 24px}
-  .hi{padding:60px 24px}
-  #home h1{font-size:clamp(48px,12vw,76px);letter-spacing:-1px}
-  .hsub{font-size:16px}
-  .hbtns{flex-direction:column;align-items:flex-start}
-  .btn-blue,.btn-out{padding:16px 32px}
-  .hproof{display:flex;flex-wrap:wrap;border:none;gap:8px}
-  .pi{padding:16px 20px;border:1px solid rgba(37,99,235,.2)!important;flex:1;min-width:120px}
-  .pgrid{grid-template-columns:1fr 1fr}
-  .wgrid{grid-template-columns:1fr}
-  .who-grid{grid-template-columns:1fr}
-  .prgrid{grid-template-columns:1fr}
-  .abgrid{grid-template-columns:1fr}
-  .abbox{display:none}
-  .ctgrid{grid-template-columns:1fr;gap:40px}
-  .ftop{grid-template-columns:1fr 1fr}
-  .frow{grid-template-columns:1fr}
-  footer{padding:40px 24px 24px}
-  .retnote{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:480px){
-  .pgrid{grid-template-columns:1fr}
-  .ftop{grid-template-columns:1fr}
-}
-</style>
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:start;
+      margin-top: 18px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(140,180,255,.16);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(900px 180px at 20% 0%, rgba(47,123,255,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .card > *{ position: relative; z-index: 1; }
+
+    .eyebrow{
+      font-size: 12px;
+      color: rgba(47,123,255,.95);
+      font-weight: 950;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3.4vw, 44px);
+      letter-spacing: -0.9px;
+      line-height: 1.06;
+    }
+    .desc{
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .kpiRow{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .kpi{
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+    }
+    .kpi .n{ font-weight: 950; font-size: 28px; letter-spacing: -0.8px; margin-bottom: 4px; }
+    .kpi .l{
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .list{
+      display:grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(140,180,255,.12);
+      background: rgba(255,255,255,.02);
+    }
+    .check{
+      width: 22px; height: 22px;
+      border-radius: 8px;
+      display:grid;
+      place-items:center;
+      background: rgba(47,123,255,.15);
+      border: 1px solid rgba(47,123,255,.26);
+      font-weight: 900;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .li h3{ margin: 0 0 4px; font-size: 15px; letter-spacing: -0.2px; }
+    .li p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .mini{
+      padding: 18px;
+      border-radius: var(--r);
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+    }
+    .tag{
+      display:inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(168,190,220,.78);
+      border: 1px solid rgba(140,180,255,.16);
+      background: rgba(255,255,255,.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .mini h3{ margin: 0 0 8px; font-size: 16px; }
+    .mini p{ margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    /* PRICING */
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .tier{
+      padding: 18px;
+      border-radius: var(--r);
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow:hidden;
+    }
+    .tier.featured{
+      border: 1px solid transparent;
+      background:
+        linear-gradient(180deg, rgba(47,123,255,.14), rgba(255,255,255,.02)) padding-box,
+        linear-gradient(135deg, rgba(47,123,255,.9), rgba(140,180,255,.25)) border-box;
+      box-shadow: var(--shadow);
+    }
+    .price{
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -0.8px;
+      margin: 10px 0 10px;
+    }
+    .tier ul{ margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .tier li{ margin: 7px 0; }
+
+    .noteBox{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(47,123,255,.25);
+      background: rgba(47,123,255,.08);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .noteBox strong{ color: var(--text); }
+
+    /* CONTACT FORM */
+    form{ display:grid; gap: 10px; margin-top: 14px; }
+    label{ font-size: 12px; font-weight: 950; letter-spacing: 2px; text-transform: uppercase; color: rgba(168,190,220,.65); }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(47,123,255,.55);
+      background: rgba(0,0,0,.24);
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    .row2{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    footer{
+      margin-top: 40px;
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(140,180,255,.14);
+      color: rgba(168,190,220,.65);
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .cards3{ grid-template-columns: 1fr; }
+      .pricing{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 840px){
+      .links{ display:none; }
+      .drawer{ display:block; }
+      .row2{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Ghost Digital Co home">
+      <!-- LOGO (SVG) -->
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2F7BFF"/>
+            <stop offset="1" stop-color="#1E5FE6"/>
+          </linearGradient>
+        </defs>
+        <!-- ghost silhouette -->
+        <path fill="url(#gBlue)" d="M32 6c-12.2 0-22 9.9-22 22v25.7c0 1.7 1.8 2.7 3.2 1.7l3.8-2.7a2 2 0 0 1 2.4 0l4.6 3.2a2 2 0 0 0 2.3 0l4.7-3.2a2 2 0 0 1 2.3 0l4.7 3.2a2 2 0 0 0 2.3 0l4.6-3.2a2 2 0 0 1 2.4 0l3.8 2.7c1.4 1 3.2 0 3.2-1.7V28C54 15.9 44.2 6 32 6z"/>
+        <!-- subtle cut G -->
+        <path fill="rgba(10,16,32,.92)" d="M39.8 22.6a11.6 11.6 0 1 0 0 18.8l-2.2-2.6a8.2 8.2 0 1 1 0-13.1l2.2-3.1z"/>
+        <path fill="rgba(10,16,32,.92)" d="M42.5 33.4h-7.8v3.3h4.6c-1 1.7-2.9 2.8-5 2.8v3.2c4.8 0 8.7-3.9 8.7-8.7z"/>
+      </svg>
 
-<nav id="navbar">
-  <a href="#home" class="nav-logo">
-    <span class="nm">GHOST</span><span class="ns"></span><span class="nd">Digital Co</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#process">Process</a></li>
-    <li><a href="#work">Services</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact" class="ncta">Start a Project</a></li>
-  </ul>
-</nav>
+      <span>GHOST · DIGITAL <small>CO</small></span>
+    </a>
 
-<section id="home">
-  <div class="hgb"></div>
-  <div class="hgb2"></div>
-  <div class="hgl"></div>
-  <div class="hgl2"></div>
-  <div class="hi">
-    <div class="hew"><div class="hel"></div><span>Web Design &amp; Development &mdash; Knoxville, TN</span></div>
-    <h1>We Do<br>The Work.<br><em>You Get<br>The Credit.</em></h1>
-    <p class="hsub">Ghost Digital Co builds precise, professional websites for businesses serious about growth. We work behind the scenes so you look incredible in front of everyone else.</p>
-    <div class="hbtns">
-      <a href="#contact" class="btn-blue">Start Your Project &rarr;</a>
-      <a href="#work" class="btn-out">See What We Build</a>
-    </div>
-    <div class="hproof">
-      <div class="pi"><div class="pn pn-blue">7</div><div class="pl">Days to Launch</div></div>
-      <div class="pi"><div class="pn">$800</div><div class="pl">Starting Price</div></div>
-      <div class="pi"><div class="pn pn-blue">100%</div><div class="pl">Custom Built</div></div>
-    </div>
+    <nav class="links" aria-label="Primary navigation">
+      <a href="#process">Process</a>
+      <a href="#builds">What We Build</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="btn primary" href="#contact">Start a Project →</a>
   </div>
-</section>
 
-<div class="mq" aria-hidden="true">
-  <div class="mq-inner">
-    <div class="mqi">
-      <span class="mqt">Web Design</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">New Builds</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Site Redesigns</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Mobile Optimized</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">SEO Setup</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Quote Forms</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Brand Showcases</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Monthly Maintenance</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Web Design</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">New Builds</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Site Redesigns</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Mobile Optimized</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">SEO Setup</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Quote Forms</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Brand Showcases</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-      <span class="mqt">Monthly Maintenance</span><span class="mqs">&nbsp;&#9670;&nbsp;</span>
-    </div>
+  <!-- mobile drawer -->
+  <div class="wrap drawer" aria-label="Mobile navigation">
+    <a href="#process">Process</a>
+    <a href="#builds">What We Build</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
   </div>
-</div>
+</header>
 
-<section class="sec" id="process">
-  <div class="con">
-    <p class="ey reveal">How It Works</p>
-    <h2 class="st reveal">Simple Process.<br>Serious Results.</h2>
-    <div class="pgrid">
-      <div class="pc reveal"><div class="pnum">01</div><h3>Discovery Call</h3><p>We learn your business, goals, and what your customers need to see. 30 minutes is all it takes.</p></div>
-      <div class="pc reveal"><div class="pnum">02</div><h3>We Build It</h3><p>We handle all design, copy, and development. You don't write a word or click a button. We disappear and get to work.</p></div>
-      <div class="pc reveal"><div class="pnum">03</div><h3>You Review</h3><p>We show you the finished site and make adjustments. We don't launch until you're completely satisfied.</p></div>
-      <div class="pc reveal"><div class="pnum">04</div><h3>You Launch</h3><p>Your site goes live and you take all the credit. Most projects go from kickoff to launch in under 7 days.</p></div>
-    </div>
-  </div>
-</section>
+<main class="wrap" id="home">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="pill"><strong>Knoxville, TN</strong> · Serving clients nationwide</div>
 
-<section class="sec" id="work">
-  <div class="con">
-    <p class="ey reveal">What We Build</p>
-    <h2 class="st lt reveal">Sites That Work<br>Like Your Business.</h2>
-    <p class="sb reveal" style="color:var(--silver)">We build websites for local businesses that need more than a pretty page — something that shows what they carry, earns trust fast, and turns visitors into calls and quotes.</p>
-    <div class="wgrid">
-      <div class="wc reveal">
-        <div class="wi">&#127981;</div>
-        <div class="wt">Product &amp; Brand Showcase</div>
-        <p class="wb">We display your inventory, equipment lines, and brand partners in a clean organized layout. Customers see exactly what you carry before they ever pick up the phone.</p>
-        <ul class="wlist">
-          <li>Brand logos &amp; partner pages</li>
-          <li>Equipment categories</li>
-          <li>Product photo galleries</li>
-          <li>Featured &amp; new arrivals</li>
-        </ul>
-      </div>
-      <div class="wc reveal">
-        <div class="wi">&#128203;</div>
-        <div class="wt">Quote &amp; Contact Systems</div>
-        <p class="wb">We build quote request forms, contact pages, and call-to-action systems that turn website visitors into real leads — without them having to hunt for a way to reach you.</p>
-        <ul class="wlist">
-          <li>Quote request forms</li>
-          <li>Contact &amp; inquiry pages</li>
-          <li>Click-to-call buttons</li>
-          <li>Google Maps integration</li>
-        </ul>
-      </div>
-      <div class="wc reveal">
-        <div class="wi">&#127959;</div>
-        <div class="wt">Full Website Builds</div>
-        <p class="wb">The whole package. Homepage, about, services, brands, and contact — all built and launched in under 7 days. You get a site that looks like you spent 10x more.</p>
-        <ul class="wlist">
-          <li>Custom design &amp; copy</li>
-          <li>Mobile optimized</li>
-          <li>SEO basics included</li>
-          <li>Launched in 7 days</li>
-        </ul>
-      </div>
-    </div>
-    <div class="who-grid">
-      <div class="who-card reveal">
-        <div class="who-label">Who We Work With</div>
-        <div class="who-title">Equipment Resellers</div>
-        <p class="who-body">Restaurant, commercial, industrial — if you sell or service equipment, we know your business and exactly what your customers need to see.</p>
-      </div>
-      <div class="who-card reveal">
-        <div class="who-label">Who We Work With</div>
-        <div class="who-title">Trades &amp; Service Co.</div>
-        <p class="who-body">Plumbers, electricians, HVAC, roofers — local service companies that need more calls, more quotes, and less hassle managing their online presence.</p>
-      </div>
-      <div class="who-card reveal">
-        <div class="who-label">Who We Work With</div>
-        <div class="who-title">Local Businesses</div>
-        <p class="who-body">Restaurants, retailers, startups — if you have customers who search for you online, you need a site that earns their trust the moment they land on it.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <h1>Modern sites.<br>Real leads.</h1>
+    <p class="sub">
+      Ghost Digital Co builds sleek, conversion-first websites for trades, service businesses, and B2B suppliers.
+      Fast builds, clean structure, and a site that pushes people to call, quote, book, or buy.
+    </p>
 
-<section class="sec" id="pricing">
-  <div class="con">
-    <p class="ey reveal">Transparent Pricing</p>
-    <h2 class="st lt reveal">No Surprises.<br>No Hidden Fees.</h2>
-    <div class="prgrid">
-      <div class="prc reveal">
-        <div class="pbadge">Starter</div>
-        <div class="prname">Launch</div>
-        <div class="pram"><span class="prsup">$</span>800</div>
-        <p class="prnote">One-time build fee</p>
-        <div class="prdiv"></div>
-        <ul class="prft">
-          <li>Up to 5 pages</li>
-          <li>Mobile optimized</li>
-          <li>Contact form</li>
-          <li>Basic SEO setup</li>
-          <li>7-day delivery</li>
-          <li>1 round of revisions</li>
-        </ul>
-        <a href="#contact" class="prbtn">Get Started</a>
-      </div>
-      <div class="prc feat reveal">
-        <div class="pbadge f">Most Popular</div>
-        <div class="prname">Pro</div>
-        <div class="pram"><span class="prsup">$</span>1,500</div>
-        <p class="prnote" style="color:rgba(255,255,255,.6)">One-time build fee</p>
-        <div class="prdiv f"></div>
-        <ul class="prft">
-          <li>Up to 10 pages</li>
-          <li>Brand &amp; product showcase</li>
-          <li>Quote request system</li>
-          <li>Google Maps + SEO</li>
-          <li>Priority delivery</li>
-          <li>2 rounds of revisions</li>
-        </ul>
-        <a href="#contact" class="prbtn f">Get Started</a>
-      </div>
-      <div class="prc reveal">
-        <div class="pbadge">Full Service</div>
-        <div class="prname">Authority</div>
-        <div class="pram"><span class="prsup">$</span>3,000</div>
-        <p class="prnote">One-time build fee</p>
-        <div class="prdiv"></div>
-        <ul class="prft">
-          <li>Unlimited pages</li>
-          <li>Full brand showcase</li>
-          <li>Advanced forms &amp; flows</li>
-          <li>Blog or news section</li>
-          <li>Rush delivery</li>
-          <li>Unlimited revisions</li>
-        </ul>
-        <a href="#contact" class="prbtn">Get Started</a>
-      </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+      <a class="btn primary" href="#contact">Get a Quote →</a>
+      <a class="btn" href="#builds">See What We Build</a>
     </div>
-    <div class="retnote reveal">
-      <div style="font-size:32px">&#128260;</div>
-      <p><strong>Monthly Care Plans from $200/month</strong> &mdash; Text changes, new photos, updated info. We handle it quietly so your site stays current and you never have to think about it.</p>
-      <a href="#contact" class="btn-blue" style="white-space:nowrap;flex-shrink:0">Ask About Retainers</a>
-    </div>
-  </div>
-</section>
 
-<section class="sec" id="about">
-  <div class="con">
-    <div class="abgrid">
-      <div class="reveal-left">
-        <div class="abbox">
-          <div class="abq">Behind the scenes.<br><em>In front of<br>everyone else.</em></div>
-          <p class="abs">We work quietly in the background building things that make your business impossible to ignore. You show up looking like a million dollars. Nobody needs to know how it happened.</p>
-          <div class="abtag"><p>Knoxville, TN</p></div>
+    <div class="grid">
+      <div class="card">
+        <div class="eyebrow">What you’re buying</div>
+        <h2 style="margin-bottom:10px;">A site that earns trust fast.</h2>
+        <p class="desc">
+          Most small business websites are “fine” — and that’s the problem. We build a structured, modern page that makes the next step obvious.
+        </p>
+
+        <div class="list">
+          <div class="li">
+            <div class="check">✓</div>
+            <div>
+              <h3>Above-the-fold clarity</h3>
+              <p>People understand you in 5 seconds.</p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">✓</div>
+            <div>
+              <h3>One primary CTA</h3>
+              <p>Call, quote, book, or inquire—no distractions.</p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">✓</div>
+            <div>
+              <h3>Local trust signals</h3>
+              <p>Service areas, reviews, before/after, credibility blocks.</p>
+            </div>
+          </div>
         </div>
+
+        <div class="kpiRow">
+          <div class="kpi"><div class="n">7</div><div class="l">Days to launch*</div></div>
+          <div class="kpi"><div class="n">$0</div><div class="l">Upfront retainers</div></div>
+          <div class="kpi"><div class="n">100%</div><div class="l">Custom built</div></div>
+        </div>
+
+        <p style="margin-top:10px; font-size:13px; color:rgba(168,190,220,.6);">
+          *When content/assets are ready. If not, we build while you gather them.
+        </p>
       </div>
-      <div>
-        <p class="ey reveal">About Ghost Digital Co</p>
-        <h2 class="st reveal">The Work Speaks<br>For Itself.</h2>
-        <p class="sb reveal">Most small businesses have websites that hurt them more than they help. We fix that. Fast, clean, built specifically for your business — and delivered before your competitors even respond to your quote request.</p>
-        <div class="abpts">
-          <div class="abpt reveal"><div class="abico">&#9889;</div><div><h4>Fast Turnaround</h4><p>Most sites go live in 7 days or less. No waiting months for a professional online presence.</p></div></div>
-          <div class="abpt reveal"><div class="abico">&#127919;</div><div><h4>Built to Convert</h4><p>Every page is designed with one goal — turning visitors into calls, quotes, and customers.</p></div></div>
-          <div class="abpt reveal"><div class="abico">&#128123;</div><div><h4>We Stay Invisible</h4><p>We do the work behind the scenes. Your clients see a world-class website. They never need to know how it got there.</p></div></div>
+
+      <div class="card">
+        <div class="eyebrow">What we include</div>
+        <h2 style="margin-bottom:10px;">No fluff. Just impact.</h2>
+        <p class="desc">These are the pieces that move a visitor into a lead.</p>
+
+        <div class="cards3" style="grid-template-columns: 1fr; margin-top: 12px;">
+          <div class="mini">
+            <span class="tag">Speed</span>
+            <h3>Fast load + mobile-first</h3>
+            <p>Clean build, readable sections, zero bloat.</p>
+          </div>
+          <div class="mini">
+            <span class="tag">Structure</span>
+            <h3>Service / product layout</h3>
+            <p>Organized pages that make buying obvious.</p>
+          </div>
+          <div class="mini">
+            <span class="tag">Conversion</span>
+            <h3>Lead capture + CTAs</h3>
+            <p>Forms, click-to-call, map, frictionless contact.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="sec" id="contact">
-  <div class="con">
-    <p class="ey reveal">Let's Talk</p>
-    <h2 class="st lt reveal">Start Your Project<br>Today.</h2>
-    <div class="ctgrid">
-      <div class="ctl reveal">
-        <h3>We'd Love to Hear From You</h3>
-        <div class="cdet"><div class="cdico">&#128231;</div><div><div class="cdlbl">Email</div><div class="cdval"><a href="mailto:hello@ghostdigitalco.com">hello@ghostdigitalco.com</a></div></div></div>
-        <div class="cdet"><div class="cdico">&#128205;</div><div><div class="cdlbl">Based In</div><div class="cdval">Knoxville, TN<br><span style="font-size:13px;color:var(--muted)">Serving clients nationwide</span></div></div></div>
-        <div class="cdet"><div class="cdico">&#9201;</div><div><div class="cdlbl">Response Time</div><div class="cdval">Within 24 hours</div></div></div>
-        <div class="free-box">
-          <h4>Free Consultation</h4>
-          <p>Tell us about your business and we'll tell you exactly what will work and what it will cost. No pressure. No obligation. We disappear if it's not a fit.</p>
-        </div>
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="eyebrow">Process</div>
+    <h2>Simple process. Fast delivery.</h2>
+    <p class="desc">No endless meetings. No months-long timelines. We ship.</p>
+
+    <div class="cards3">
+      <div class="mini">
+        <span class="tag">1</span>
+        <h3>Strategy</h3>
+        <p>Offer, CTA, layout. 20–30 minutes. Done.</p>
       </div>
-      <div class="reveal">
-        <form onsubmit="sf(event)">
-          <div class="frow">
-            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required></div>
-            <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+      <div class="mini">
+        <span class="tag">2</span>
+        <h3>Build</h3>
+        <p>Design + development. Clean, modern, fast.</p>
+      </div>
+      <div class="mini">
+        <span class="tag">3</span>
+        <h3>Launch</h3>
+        <p>Go live, then iterate with a care plan if you want.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILDS -->
+  <section id="builds">
+    <div class="eyebrow">What we build</div>
+    <h2>Made for real businesses.</h2>
+    <p class="desc">Trades, service companies, local pros, B2B suppliers—if you need inbound, this fits.</p>
+
+    <div class="cards3">
+      <div class="mini">
+        <span class="tag">Trades</span>
+        <h3>HVAC · Plumbing · Electrical · Roofing</h3>
+        <p>Service areas, reviews, before/after, quote-first structure.</p>
+      </div>
+      <div class="mini">
+        <span class="tag">B2B</span>
+        <h3>Suppliers · Dealers · Distributors</h3>
+        <p>Catalog-style pages + inquiry workflow that closes.</p>
+      </div>
+      <div class="mini">
+        <span class="tag">Local</span>
+        <h3>Professional services</h3>
+        <p>Credibility-forward layout that feels premium, not templated.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="eyebrow">Pricing</div>
+    <h2>Transparent ranges. No surprises.</h2>
+    <p class="desc">Exact quote after a quick intake. If it’s not a fit, I’ll tell you.</p>
+
+    <div class="pricing">
+      <div class="tier">
+        <span class="tag">Starter</span>
+        <h3>Landing Page</h3>
+        <div class="price">$1,250+</div>
+        <ul>
+          <li>Single-page conversion layout</li>
+          <li>Lead capture + click-to-call</li>
+          <li>Mobile-first build</li>
+        </ul>
+      </div>
+
+      <div class="tier featured">
+        <span class="tag">Most Popular</span>
+        <h3>5-Page Business Site</h3>
+        <div class="price">$2,500+</div>
+        <ul>
+          <li>Home + Services + About + Contact + FAQ</li>
+          <li>Conversion-first sections</li>
+          <li>Local-ready SEO foundation</li>
+        </ul>
+      </div>
+
+      <div class="tier">
+        <span class="tag">Ongoing</span>
+        <h3>Care Plan</h3>
+        <div class="price">$99–$249/mo</div>
+        <ul>
+          <li>Edits & small updates</li>
+          <li>Performance/uptime checks</li>
+          <li>Basic SEO tune-ups</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="noteBox">
+      <strong>Blunt truth:</strong> “Cheap sites” attract cheap clients. If you want serious businesses, you price like a professional.
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="eyebrow">Contact</div>
+    <h2>Start your project.</h2>
+    <p class="desc">This form captures leads in Netlify Forms.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin:0 0 10px;">Project Intake</h3>
+        <p class="desc" style="margin-bottom:0;">Tell me what you do and what you want the site to accomplish.</p>
+
+        <!-- Netlify Forms -->
+        <form name="project-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="project-intake" />
+          <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="row2">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
           </div>
-          <div class="fg"><label>Business Name</label><input type="text" placeholder="Your Company" required></div>
-          <div class="frow">
-            <div class="fg"><label>Phone</label><input type="tel" placeholder="865-000-0000"></div>
-            <div class="fg"><label>Email</label><input type="email" placeholder="you@company.com" required></div>
+
+          <div>
+            <label for="business">Business name</label>
+            <input id="business" name="business" type="text" required />
           </div>
-          <div class="fg">
-            <label>What Do You Need?</label>
-            <select required>
-              <option value="">Select one...</option>
-              <option>New Website Build</option>
-              <option>Redesign Existing Site</option>
-              <option>Monthly Care Plan</option>
-              <option>Just Exploring</option>
-            </select>
+
+          <div class="row2">
+            <div>
+              <label for="type">Business type</label>
+              <select id="type" name="business_type" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Trade / Contractor</option>
+                <option>Service Business</option>
+                <option>Dealer / Supplier / B2B</option>
+                <option>Restaurant / Bar</option>
+                <option>Professional Services</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="budget">Budget</label>
+              <select id="budget" name="budget" required>
+                <option value="" disabled selected>Select one</option>
+                <option>$1,250–$2,000</option>
+                <option>$2,000–$4,000</option>
+                <option>$4,000+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
           </div>
-          <div class="fg"><label>Tell Us About Your Business</label><textarea placeholder="What does your business do? Who are your customers?"></textarea></div>
-          <button type="submit" class="fsub">Send My Request &rarr;</button>
+
+          <div>
+            <label for="details">Project details</label>
+            <textarea id="details" name="details" placeholder="What do you do? What pages do you need? Calls/quotes/bookings?" required></textarea>
+          </div>
+
+          <button class="btn primary" type="submit" style="width:100%; justify-content:center;">Send →</button>
         </form>
       </div>
-    </div>
-  </div>
-</section>
 
-<footer>
-  <div class="ftop">
-    <div>
-      <div class="fbn">GHOST <span>&middot;</span> DIGITAL CO</div>
-      <div class="ftag">Powerful. Invisible. Effective.</div>
-      <p class="fdesc">Professional websites for businesses that mean business. Fast, clean, built to convert. Based in Knoxville, TN &mdash; serving clients nationwide.</p>
+      <div class="card">
+        <h3 style="margin:0 0 10px;">Direct</h3>
+        <p class="desc">Update these with your real info.</p>
+
+        <div class="list">
+          <div class="li">
+            <div class="check">☎</div>
+            <div>
+              <h3>Phone</h3>
+              <p style="margin:0;"><a href="tel:+18655551234">(865) 555-1234</a></p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">@</div>
+            <div>
+              <h3>Email</h3>
+              <p style="margin:0;"><a href="mailto:hello@ghostdigitalco.com">hello@ghostdigitalco.com</a></p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">⌁</div>
+            <div>
+              <h3>Location</h3>
+              <p style="margin:0;">Knoxville, TN · Serving nationwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <a class="btn" href="#home">Back to top ↑</a>
+        </div>
+
+        <footer>
+          <div>© <span id="year"></span> Ghost Digital Co. All rights reserved.</div>
+          <div>Built to convert.</div>
+        </footer>
+      </div>
     </div>
-    <div class="fcol">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#work">New Website Builds</a></li>
-        <li><a href="#work">Brand Showcases</a></li>
-        <li><a href="#pricing">Monthly Care Plans</a></li>
-        <li><a href="#contact">Free Consultation</a></li>
-      </ul>
-    </div>
-    <div class="fcol">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#process">Our Process</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="fbot">
-    <p>&copy; 2025 Ghost Digital Co. All rights reserved. Knoxville, TN.</p>
-    <p>Built with <span>precision</span>.</p>
-  </div>
-</footer>
+  </section>
+</main>
 
 <script>
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target)}
-  });
-},{threshold:0.07});
-document.querySelectorAll('.reveal,.reveal-left').forEach(el=>obs.observe(el));
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').style.boxShadow=window.scrollY>60?'0 4px 40px rgba(0,0,0,.8)':'none';
-},{passive:true});
-function sf(e){
-  e.preventDefault();
-  const b=e.target.querySelector('.fsub');
-  b.textContent="Received. We'll be in touch within 24 hours.";
-  b.style.background='#111827';
-  b.disabled=true;
-}
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
