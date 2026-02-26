@@ -3,246 +3,607 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Mise Digital Co builds sleek, conversion-first websites for Knoxville businesses and beyond. Fast, modern, built to convert." />
 <title>Mise Digital Co — Everything In Its Place</title>
 
 <style>
+  :root{
+    --bg: #0B1220;
+    --panel: #111A2E;
+    --panel2: #16223A;
+    --text: #EAF1FF;
+    --muted: #9FB3D9;
+    --line: rgba(120,160,255,.16);
 
-/* =============================
-   MODERN BLUE / SLATE THEME
-============================= */
+    --accent: #3B82F6;
+    --accent2: #2563EB;
 
-:root{
-  --bg: #0B1220;
-  --panel: #111A2E;
-  --panel-light: #16223A;
-  --text: #EAF1FF;
-  --muted: #9FB3D9;
-  --line: rgba(120,160,255,.15);
+    --radius: 16px;
+    --max: 1120px;
 
-  --accent: #3B82F6;
-  --accent-dark: #2563EB;
+    --shadow: 0 20px 60px rgba(0,0,0,.55);
+  }
 
-  --radius: 16px;
-}
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    background:
+      radial-gradient(900px 600px at 20% -10%, rgba(59,130,246,.12), transparent 60%),
+      radial-gradient(700px 500px at 90% 0%, rgba(59,130,246,.08), transparent 60%),
+      var(--bg);
+    color: var(--text);
+  }
 
-*{
-  box-sizing: border-box;
-}
+  a{ color: inherit; text-decoration:none; }
 
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  background:
-    radial-gradient(900px 600px at 20% -10%, rgba(59,130,246,.12), transparent 60%),
-    radial-gradient(700px 500px at 90% 0%, rgba(59,130,246,.08), transparent 60%),
-    var(--bg);
-  color: var(--text);
-}
+  .container{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 18px 18px 64px;
+  }
 
-/* =============================
-   LAYOUT
-============================= */
+  /* Top nav */
+  .nav{
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    padding: 14px 0;
+    backdrop-filter: blur(14px);
+    background: rgba(11,18,32,.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 14px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 13px;
+  }
+  .brand-dot{
+    width: 9px; height: 9px; border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 6px rgba(59,130,246,.12);
+  }
+  .links{
+    display:flex; gap: 14px; flex-wrap:wrap;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .links a{
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+  }
+  .links a:hover{
+    color: var(--text);
+    border-color: var(--line);
+    background: rgba(255,255,255,.03);
+  }
 
-.container{
-  max-width: 1100px;
-  margin: auto;
-  padding: 24px;
-}
+  /* Typography */
+  h1{
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.03;
+    margin: 0 0 14px;
+    letter-spacing: -1px;
+  }
+  h2{
+    font-size: clamp(26px, 3.4vw, 40px);
+    margin: 0 0 12px;
+    letter-spacing: -0.6px;
+  }
+  h3{
+    margin: 0 0 8px;
+    font-size: 18px;
+    letter-spacing: -0.2px;
+  }
+  p{
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.65;
+  }
 
-section{
-  padding: 80px 0;
-}
+  /* Buttons */
+  .btns{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 16px; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.03);
+  }
+  .btn:hover{ background: rgba(255,255,255,.06); }
+  .btn.primary{
+    background: var(--accent);
+    border-color: transparent;
+    color: #fff;
+  }
+  .btn.primary:hover{ background: var(--accent2); }
 
-h1{
-  font-size: 56px;
-  line-height: 1.05;
-  margin: 0 0 20px;
-}
+  /* Sections */
+  section{ padding: 54px 0; }
 
-h2{
-  font-size: 36px;
-  margin-bottom: 20px;
-}
+  .card{
+    background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+  }
 
-h3{
-  margin-bottom: 10px;
-}
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+  }
+  .col-7{ grid-column: span 7; }
+  .col-5{ grid-column: span 5; }
+  .col-6{ grid-column: span 6; }
+  .col-4{ grid-column: span 4; }
+  .col-12{ grid-column: span 12; }
 
-p{
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.6;
-}
+  .pill{
+    display:inline-flex; gap: 10px; align-items:center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.03);
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .pill strong{ color: var(--text); }
 
-/* =============================
-   NAV
-============================= */
+  .metric{
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(255,255,255,.03);
+    padding: 14px;
+  }
+  .metric .big{
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.7px;
+    margin-bottom: 4px;
+  }
+  .metric .lbl{
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.35;
+  }
 
-nav{
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-  padding:20px 0;
-}
+  .list{
+    display:grid;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .li{
+    display:flex; gap: 10px; align-items:flex-start;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(120,160,255,.14);
+    background: rgba(255,255,255,.02);
+  }
+  .check{
+    width: 22px; height: 22px;
+    border-radius: 8px;
+    display:grid; place-items:center;
+    background: rgba(59,130,246,.15);
+    border: 1px solid rgba(59,130,246,.25);
+    color: var(--text);
+    font-weight: 900;
+    flex: 0 0 auto;
+    margin-top: 1px;
+  }
 
-.logo{
-  font-weight: 700;
-  letter-spacing: 2px;
-}
+  /* Pricing */
+  .tier{
+    position: relative;
+    overflow: hidden;
+    padding: 18px;
+  }
+  .tier.featured{
+    border-color: rgba(59,130,246,.35);
+    background: linear-gradient(180deg, rgba(59,130,246,.10), rgba(255,255,255,.02));
+  }
+  .tag{
+    display:inline-block;
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.03);
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .price{
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    margin: 8px 0 8px;
+  }
+  ul{
+    margin: 10px 0 0;
+    padding-left: 18px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  li{ margin: 7px 0; }
 
-.nav-links a{
-  color: var(--muted);
-  text-decoration:none;
-  margin-left: 20px;
-  font-size:14px;
-}
+  /* Form */
+  form{ display:grid; gap: 10px; margin-top: 10px; }
+  label{ font-size: 13px; color: var(--muted); }
+  input, textarea, select{
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(120,160,255,.16);
+    background: rgba(0,0,0,.18);
+    color: var(--text);
+    outline: none;
+    font-size: 14px;
+  }
+  input:focus, textarea:focus, select:focus{
+    border-color: rgba(59,130,246,.5);
+    background: rgba(0,0,0,.24);
+  }
+  textarea{ min-height: 120px; resize: vertical; }
 
-.nav-links a:hover{
-  color: white;
-}
+  .footer{
+    margin-top: 50px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    gap: 12px;
+    flex-wrap:wrap;
+    color: var(--muted);
+    font-size: 13px;
+  }
 
-/* =============================
-   BUTTONS
-============================= */
-
-.btn{
-  display:inline-block;
-  padding:12px 22px;
-  border-radius: 10px;
-  text-decoration:none;
-  font-weight:600;
-  margin-right:10px;
-  margin-top:15px;
-}
-
-.btn-primary{
-  background: var(--accent);
-  color:white;
-}
-
-.btn-primary:hover{
-  background: var(--accent-dark);
-}
-
-.btn-outline{
-  border:1px solid var(--line);
-  color: var(--text);
-}
-
-/* =============================
-   CARDS
-============================= */
-
-.card{
-  background: var(--panel);
-  padding:30px;
-  border-radius: var(--radius);
-  border:1px solid var(--line);
-  margin-bottom:20px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap:20px;
-}
-
-/* =============================
-   FOOTER
-============================= */
-
-footer{
-  border-top:1px solid var(--line);
-  padding:30px 0;
-  color: var(--muted);
-  font-size:14px;
-  text-align:center;
-}
-
+  /* Mobile */
+  @media (max-width: 920px){
+    .links{ display:none; }
+    .col-7,.col-5,.col-6,.col-4{ grid-column: span 12; }
+    section{ padding: 44px 0; }
+  }
 </style>
 </head>
 
 <body>
-
-<div class="container">
-
-<nav>
-  <div class="logo">MISE · DIGITAL</div>
-  <div class="nav-links">
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section>
-  <h1>Everything In Its Place.</h1>
-  <p>
-    Precise, modern websites for growth-focused businesses in Knoxville and beyond.
-    Built fast. Built clean. Built to convert.
-  </p>
-
-  <a href="#contact" class="btn btn-primary">Start Your Project →</a>
-  <a href="#services" class="btn btn-outline">See What We Build</a>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <h2>Websites That Do Their Job</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Custom Website Builds</h3>
-      <p>Modern, responsive sites structured for calls, quotes, and bookings.</p>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Mise Digital Co home">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>MISE · DIGITAL</span>
+      </a>
+      <nav class="links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#proof">Proof</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="#pricing">See pricing</a>
+        <a class="btn primary" href="#contact">Start your project →</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>Landing Pages</h3>
-      <p>Focused pages built around one offer and one conversion goal.</p>
-    </div>
-    <div class="card">
-      <h3>Service & Product Pages</h3>
-      <p>Clean layouts that explain what you do without clutter.</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<!-- PROCESS -->
-<section id="process">
-  <h2>Simple Process</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>1. Strategy</h3>
-      <p>We define your offer and conversion goal.</p>
-    </div>
-    <div class="card">
-      <h3>2. Build</h3>
-      <p>Clean, responsive design built quickly.</p>
-    </div>
-    <div class="card">
-      <h3>3. Launch</h3>
-      <p>Go live and start capturing leads.</p>
-    </div>
-  </div>
-</section>
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section>
+      <div class="pill"><strong>Knoxville, TN</strong> · Serving clients nationwide</div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Start Your Project</h2>
-  <p>
-    Tell me what your business does and what results you want.
-    If it’s a fit, we move fast.
-  </p>
+      <div class="grid">
+        <div class="col-7">
+          <h1>Everything<br>In Its Place.</h1>
+          <p>
+            Sleek, modern websites for businesses that need <b>leads</b> — not “a pretty page.”
+            Trades, service companies, B2B suppliers, restaurants, and local pros.
+          </p>
 
-  <a href="mailto:hello@misedigitalco.com" class="btn btn-primary">
-    Contact Mise Digital →
-  </a>
-</section>
+          <div class="btns">
+            <a class="btn primary" href="#contact">Get a quote →</a>
+            <a class="btn" href="#proof">See what you get</a>
+          </div>
 
-<footer>
-  © 2026 Mise Digital Co · Knoxville, TN
-</footer>
+          <div class="list" style="margin-top:16px;">
+            <div class="li">
+              <div class="check">✓</div>
+              <div>
+                <h3>Conversion-first structure</h3>
+                <p>Clear offer + clear CTA. Calls, quote requests, bookings, or inquiries.</p>
+              </div>
+            </div>
+            <div class="li">
+              <div class="check">✓</div>
+              <div>
+                <h3>Fast + mobile-first</h3>
+                <p>Built to feel sharp on a phone. Fast load. No bloat.</p>
+              </div>
+            </div>
+            <div class="li">
+              <div class="check">✓</div>
+              <div>
+                <h3>Local-ready foundation</h3>
+                <p>Clean on-page structure so you can rank locally and convert traffic.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-</div>
+        <div class="col-5">
+          <div class="grid">
+            <div class="col-12 card">
+              <h3>What you’re buying</h3>
+              <p>Not “web design.” A simple system that turns visitors into customers.</p>
+            </div>
+            <div class="col-4 metric">
+              <div class="big">7</div>
+              <div class="lbl">Days to launch (when content is ready)</div>
+            </div>
+            <div class="col-4 metric">
+              <div class="big">$0</div>
+              <div class="lbl">Upfront retainers</div>
+            </div>
+            <div class="col-4 metric">
+              <div class="big">100%</div>
+              <div class="lbl">Custom built</div>
+            </div>
+            <div class="col-12 card">
+              <h3>Quick note</h3>
+              <p>
+                If your business runs on calls, quotes, or bookings —
+                your site should make that the main event.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="grid">
+        <div class="col-6 card">
+          <h2>Services</h2>
+          <p>Pick what you need. Keep it tight.</p>
+          <div class="list">
+            <div class="li"><div class="check">✓</div><div><h3>Custom Website Build</h3><p>1–5 pages, modern layout, mobile-first, conversion-focused.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>Landing Page</h3><p>One offer. One CTA. Built to convert fast.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>Service / Product Pages</h3><p>Structured pages so people understand what you do and buy.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>Monthly Care</h3><p>Edits, small updates, uptime/performance checks.</p></div></div>
+          </div>
+        </div>
+
+        <div class="col-6 card">
+          <h2>Built for real businesses</h2>
+          <p>
+            You don’t need “branding discovery.” You need clarity, speed, and a site
+            that pushes people to take action.
+          </p>
+          <div class="grid" style="margin-top:10px;">
+            <div class="col-6 card" style="box-shadow:none;">
+              <span class="tag">Trades</span>
+              <h3>HVAC · Plumbing · Electrical · Roofing</h3>
+              <p>Quote forms, service areas, reviews, before/after.</p>
+            </div>
+            <div class="col-6 card" style="box-shadow:none;">
+              <span class="tag">Service</span>
+              <h3>Local pro services</h3>
+              <p>Booking/call-focused layout that’s clean and credible.</p>
+            </div>
+            <div class="col-6 card" style="box-shadow:none;">
+              <span class="tag">B2B</span>
+              <h3>Suppliers · Dealers · Distributors</h3>
+              <p>Catalog-style pages + inquiry workflow.</p>
+            </div>
+            <div class="col-6 card" style="box-shadow:none;">
+              <span class="tag">Hospitality</span>
+              <h3>Restaurants · Bars</h3>
+              <p>Menus, events, catering forms, click-to-call.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section id="proof">
+      <div class="grid">
+        <div class="col-7 card">
+          <h2>What you get (no fluff)</h2>
+          <p>This is what “sleek + modern” actually means in practice.</p>
+          <div class="list">
+            <div class="li"><div class="check">✓</div><div><h3>Homepage built to convert</h3><p>Offer, proof, services, CTA — in the right order.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>Speed + mobile pass</h3><p>Fast load and readable sections on phones.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>Lead capture</h3><p>Form + click-to-call + clean contact setup.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>Launch checklist</h3><p>Basic SEO structure + metadata + sitemap-friendly layout.</p></div></div>
+          </div>
+        </div>
+
+        <div class="col-5 card">
+          <h2>Early client slots</h2>
+          <p>
+            If you’re an early client, you get priority scheduling and tighter pricing.
+            After a few builds, prices move up. Simple.
+          </p>
+          <div class="list">
+            <div class="li"><div class="check">✓</div><div><h3>Fast timeline</h3><p>We move when you move. Content ready = we ship.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>One review round</h3><p>Clean feedback. No endless revision spiral.</p></div></div>
+            <div class="li"><div class="check">✓</div><div><h3>Clear deliverables</h3><p>No “maybe.” You’ll know exactly what you’re getting.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="grid">
+        <div class="col-12">
+          <h2>Pricing</h2>
+          <p>Transparent ranges. Exact quote after a quick intake.</p>
+        </div>
+
+        <div class="col-4 card tier">
+          <span class="tag">Starter</span>
+          <h3>Landing Page</h3>
+          <div class="price">$1,250+</div>
+          <p>One page. One offer. One CTA.</p>
+          <ul>
+            <li>Modern layout + mobile-first</li>
+            <li>Netlify form or email capture</li>
+            <li>Click-to-call + clear CTA</li>
+          </ul>
+        </div>
+
+        <div class="col-4 card tier featured">
+          <span class="tag">Most Popular</span>
+          <h3>5-Page Business Site</h3>
+          <div class="price">$2,500+</div>
+          <p>Real business presence that converts.</p>
+          <ul>
+            <li>Home + Services + About + Contact + FAQ</li>
+            <li>Conversion-first structure</li>
+            <li>On-page SEO foundation</li>
+          </ul>
+        </div>
+
+        <div class="col-4 card tier">
+          <span class="tag">Ongoing</span>
+          <h3>Care Plan</h3>
+          <div class="price">$99–$249/mo</div>
+          <p>Keep it updated. Keep it fast.</p>
+          <ul>
+            <li>Edits & small updates</li>
+            <li>Uptime/performance checks</li>
+            <li>Basic SEO tune-ups</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="grid">
+        <div class="col-7 card">
+          <h2>Start your project</h2>
+          <p>
+            Fill this out — it comes straight to your Netlify Forms inbox.
+            No CRM. No nonsense.
+          </p>
+
+          <!-- Netlify Forms -->
+          <form name="project-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="project-intake" />
+
+            <!-- honeypot -->
+            <p style="display:none;">
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <div class="grid" style="gap:10px;">
+              <div class="col-6">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="col-6">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="col-12">
+                <label for="business">Business name</label>
+                <input id="business" name="business" type="text" required />
+              </div>
+              <div class="col-6">
+                <label for="type">Business type</label>
+                <select id="type" name="business_type" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option>Trade / Contractor</option>
+                  <option>Service Business</option>
+                  <option>Dealer / Supplier / B2B</option>
+                  <option>Restaurant / Bar</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label for="budget">Budget</label>
+                <select id="budget" name="budget" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option>$1,250–$2,000</option>
+                  <option>$2,000–$4,000</option>
+                  <option>$4,000+</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="details">What do you need?</label>
+                <textarea id="details" name="details" placeholder="What do you do, what pages do you need, and what action do you want visitors to take?" required></textarea>
+              </div>
+            </div>
+
+            <div class="btns">
+              <button class="btn primary" type="submit">Send →</button>
+              <a class="btn" href="#pricing">See pricing</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-5 card">
+          <h2>Contact</h2>
+          <p>Update these once your email/phone are ready.</p>
+          <div class="list">
+            <div class="li">
+              <div class="check">☎</div>
+              <div>
+                <h3>Phone</h3>
+                <p><a href="tel:+18655551234">(865) 555-1234</a></p>
+              </div>
+            </div>
+            <div class="li">
+              <div class="check">@</div>
+              <div>
+                <h3>Email</h3>
+                <p><a href="mailto:hello@misedigitalco.com">hello@misedigitalco.com</a></p>
+              </div>
+            </div>
+            <div class="li">
+              <div class="check">⌁</div>
+              <div>
+                <h3>Location</h3>
+                <p>Knoxville, TN · Serving nationwide</p>
+              </div>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn" href="#top">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>© <span id="year"></span> Mise Digital Co. All rights reserved.</div>
+        <div>Built with precision.</div>
+      </div>
+    </section>
+  </main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
