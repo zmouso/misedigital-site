@@ -1,66 +1,742 @@
-<section class="sec" id="work">
-  <div class="con">
-    <p class="ey reveal">What We Build</p>
-    <h2 class="st reveal">Sites That Work<br>Like Your Business.</h2>
-    <p class="sb reveal">We build websites for local businesses that need more than a pretty page — they need something that shows what they carry, earns trust fast, and turns visitors into calls and quotes.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mise Digital builds sleek, conversion-first websites for Knoxville businesses and beyond. Clean. Fast. Built to convert." />
+  <title>Mise Digital — Everything In Its Place | Knoxville, TN</title>
 
-    <div style="margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+  <style>
+    :root{
+      /* Core */
+      --bg: #070B12;
+      --panel: rgba(255,255,255,.05);
+      --panel2: rgba(255,255,255,.075);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(175,195,220,.72);
+      --line: rgba(140,180,255,.16);
 
-      <div class="wc reveal">
-        <div class="wi">&#127981;</div>
-        <div class="wt">Product & Brand Showcase</div>
-        <p class="wb">We display your inventory, equipment lines, and brand partners in a clean, organized layout. Customers see exactly what you carry before they ever pick up the phone.</p>
-        <ul style="margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:8px">
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Brand logos & partner pages</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Equipment categories</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Product photo galleries</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Featured & new arrivals</li>
-        </ul>
-      </div>
+      /* Accent */
+      --blue: #2F7BFF;
+      --blue2: #1E5FE6;
+      --glow: rgba(47,123,255,.18);
 
-      <div class="wc reveal">
-        <div class="wi">&#128203;</div>
-        <div class="wt">Quote & Contact Systems</div>
-        <p class="wb">We build quote request forms, contact pages, and call-to-action systems that turn website visitors into real leads — without them having to hunt for a way to reach you.</p>
-        <ul style="margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:8px">
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Quote request forms</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Contact & inquiry pages</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Click-to-call buttons</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Google Maps integration</li>
-        </ul>
-      </div>
+      /* Layout */
+      --max: 1160px;
+      --r: 16px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+    }
 
-      <div class="wc reveal">
-        <div class="wi">&#127959;</div>
-        <div class="wt">Full Website Builds</div>
-        <p class="wb">The whole package. Homepage, about, services, brands, gallery, and contact — all built and launched in under 7 days. You get a professional site that looks like you spent 10x more.</p>
-        <ul style="margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:8px">
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Custom design & copy</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Mobile optimized</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> SEO basics included</li>
-          <li style="font-size:13px;color:#64748B;display:flex;align-items:center;gap:8px"><span style="color:var(--blue-bright);font-size:10px">&#9670;</span> Launched in 7 days</li>
-        </ul>
-      </div>
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:
+        radial-gradient(900px 600px at 18% -10%, var(--glow), transparent 60%),
+        radial-gradient(700px 520px at 88% 0%, rgba(47,123,255,.12), transparent 60%),
+        radial-gradient(900px 700px at 50% 110%, rgba(255,255,255,.05), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+    }
 
-    </div>
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
 
-    <div style="margin-top:48px;padding:40px;background:var(--light);border-left:3px solid var(--blue);display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px" class="reveal">
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-bright);margin-bottom:10px">Who We Work With</div>
-        <div style="font-size:15px;font-weight:700;color:var(--gray);margin-bottom:6px">Equipment Resellers</div>
-        <div style="font-size:14px;color:#64748B;line-height:1.6">Restaurant, commercial, industrial — if you sell or service equipment, we know your business.</div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-bright);margin-bottom:10px">Who We Work With</div>
-        <div style="font-size:15px;font-weight:700;color:var(--gray);margin-bottom:6px">Trades & Service Co.</div>
-        <div style="font-size:14px;color:#64748B;line-height:1.6">Plumbers, electricians, HVAC, roofers — local service companies that need more calls and less hassle.</div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-bright);margin-bottom:10px">Who We Work With</div>
-        <div style="font-size:15px;font-weight:700;color:var(--gray);margin-bottom:6px">Local Businesses</div>
-        <div style="font-size:14px;color:#64748B;line-height:1.6">Restaurants, retailers, startups — if you have customers who search for you online, you need us.</div>
-      </div>
-    </div>
+    /* ---------- NAV ---------- */
+    header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      background: rgba(7,11,18,.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      height: 72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    .dot{
+      width:9px; height:9px; border-radius:999px;
+      background: var(--blue);
+      box-shadow: 0 0 0 6px rgba(47,123,255,.14);
+      flex:0 0 auto;
+    }
+    .links{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .links a{
+      padding: 10px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
+    }
+    .links a:hover{
+      background: rgba(255,255,255,.04);
+      border-color: rgba(140,180,255,.22);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
 
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(140,180,255,.28); }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      border-color: transparent;
+    }
+    .btn.primary:hover{ background: linear-gradient(135deg, #3A86FF, var(--blue2)); }
+
+    /* Mobile nav toggle (simple) */
+    .menuBtn{ display:none; }
+    .drawer{
+      display:none;
+      padding: 0 0 18px;
+    }
+    .drawer a{
+      display:block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(140,180,255,.12);
+      color: var(--muted);
+    }
+    .drawer a:hover{ color: var(--text); }
+
+    /* ---------- HERO ---------- */
+    section{ padding: 70px 0; }
+    .hero{
+      padding: 72px 0 40px;
+      position: relative;
+    }
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(140,180,255,.18);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .pill strong{ color: var(--text); }
+    h1{
+      margin: 0 0 14px;
+      font-size: clamp(42px, 6.2vw, 86px);
+      line-height: 1.02;
+      letter-spacing: -1.2px;
+    }
+    .sub{
+      margin: 0 0 18px;
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:start;
+      margin-top: 18px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(140,180,255,.16);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(900px 180px at 20% 0%, rgba(47,123,255,.16), transparent 60%);
+      pointer-events:none;
+    }
+    .card > *{ position: relative; z-index: 1; }
+
+    .kpiRow{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .kpi{
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+    }
+    .kpi .n{
+      font-weight: 950;
+      font-size: 28px;
+      letter-spacing: -0.8px;
+      margin-bottom: 4px;
+    }
+    .kpi .l{
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .list{
+      display:grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(140,180,255,.12);
+      background: rgba(255,255,255,.02);
+    }
+    .check{
+      width: 22px; height: 22px;
+      border-radius: 8px;
+      display:grid;
+      place-items:center;
+      background: rgba(47,123,255,.15);
+      border: 1px solid rgba(47,123,255,.26);
+      font-weight: 900;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+    .li h3{
+      margin: 0 0 4px;
+      font-size: 15px;
+      letter-spacing: -0.2px;
+    }
+    .li p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .sectionTitle{
+      margin-bottom: 14px;
+    }
+    .eyebrow{
+      font-size: 12px;
+      color: rgba(47,123,255,.95);
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3.4vw, 44px);
+      letter-spacing: -0.9px;
+      line-height: 1.06;
+    }
+    .desc{
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .mini{
+      padding: 18px;
+      border-radius: var(--r);
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+    }
+    .mini .tag{
+      display:inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid rgba(140,180,255,.16);
+      background: rgba(255,255,255,.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .mini h3{ margin: 0 0 8px; font-size: 16px; }
+    .mini p{ margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    /* ---------- PRICING ---------- */
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .tier{
+      padding: 18px;
+      border-radius: var(--r);
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
+      position: relative;
+      overflow:hidden;
+    }
+    .tier.featured{
+      border: 1px solid transparent;
+      background:
+        linear-gradient(180deg, rgba(47,123,255,.14), rgba(255,255,255,.02)) padding-box,
+        linear-gradient(135deg, rgba(47,123,255,.9), rgba(140,180,255,.25)) border-box;
+      box-shadow: var(--shadow);
+    }
+    .price{
+      font-size: 34px;
+      font-weight: 950;
+      letter-spacing: -0.8px;
+      margin: 10px 0 10px;
+    }
+    .tier ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .tier li{ margin: 7px 0; }
+    .noteBox{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(47,123,255,.25);
+      background: rgba(47,123,255,.08);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .noteBox strong{ color: var(--text); }
+
+    /* ---------- CONTACT ---------- */
+    form{ display:grid; gap: 10px; margin-top: 14px; }
+    label{ font-size: 12px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: rgba(175,195,220,.65); }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(140,180,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(47,123,255,.55);
+      background: rgba(0,0,0,.24);
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    .row2{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      margin-top: 40px;
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(140,180,255,.14);
+      color: rgba(175,195,220,.65);
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .cards3{ grid-template-columns: 1fr; }
+      .pricing{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 840px){
+      .links{ display:none; }
+      .menuBtn{ display:inline-flex; }
+      .drawer{ display:block; }
+      .row2{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Mise Digital home">
+      <span class="dot" aria-hidden="true"></span>
+      <span>MISE · DIGITAL</span>
+    </a>
+
+    <nav class="links" aria-label="Primary navigation">
+      <a href="#process">Process</a>
+      <a href="#builds">What We Build</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="btn primary" href="#contact">Start a Project →</a>
   </div>
-</section>
+
+  <!-- Simple mobile drawer (always visible on mobile, no JS) -->
+  <div class="wrap drawer" aria-label="Mobile navigation">
+    <a href="#process">Process</a>
+    <a href="#builds">What We Build</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main class="wrap" id="home">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="pill"><strong>Knoxville, TN</strong> · Serving clients nationwide</div>
+
+    <h1>Everything<br>In Its Place.</h1>
+    <p class="sub">
+      Sleek websites for trades, service businesses, and B2B suppliers.
+      Built fast. Built clean. Built to convert visitors into calls, quotes, and bookings.
+    </p>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+      <a class="btn primary" href="#contact">Get a Quote →</a>
+      <a class="btn" href="#builds">See What We Build</a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="sectionTitle">
+          <div class="eyebrow">What you’re buying</div>
+          <h2 style="margin-bottom:10px;">A lead machine, not a “pretty site.”</h2>
+          <p class="desc">
+            Clear offer. Proof. One primary action. Fast mobile experience. That’s the difference between a site that looks nice and a site that makes money.
+          </p>
+        </div>
+
+        <div class="list">
+          <div class="li">
+            <div class="check">✓</div>
+            <div>
+              <h3>Above-the-fold clarity</h3>
+              <p>People understand what you do in 5 seconds.</p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">✓</div>
+            <div>
+              <h3>One primary CTA</h3>
+              <p>Call, quote, book, or inquire—no distractions.</p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">✓</div>
+            <div>
+              <h3>Trust signals that matter</h3>
+              <p>Service areas, reviews, before/after, credibility blocks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpiRow">
+          <div class="kpi"><div class="n">7</div><div class="l">Days to launch*</div></div>
+          <div class="kpi"><div class="n">$0</div><div class="l">Upfront retainers</div></div>
+          <div class="kpi"><div class="n">100%</div><div class="l">Custom built</div></div>
+        </div>
+        <p style="margin-top:10px; font-size:13px; color:rgba(175,195,220,.6);">
+          *When content/assets are ready. If not, we build while you gather them.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="sectionTitle">
+          <div class="eyebrow">Quick wins we add</div>
+          <h2 style="margin-bottom:10px;">Instant upgrades to your inbound.</h2>
+          <p class="desc">This is what most “web designers” skip. We don’t.</p>
+        </div>
+
+        <div class="cards3" style="grid-template-columns: 1fr; margin-top: 12px;">
+          <div class="mini">
+            <span class="tag">Speed</span>
+            <h3>Fast load, mobile-first</h3>
+            <p>No bloated templates. Clean sections that read like a sales page.</p>
+          </div>
+          <div class="mini">
+            <span class="tag">Structure</span>
+            <h3>Service / product layout</h3>
+            <p>Organized pages that make it obvious what you sell and why it’s worth it.</p>
+          </div>
+          <div class="mini">
+            <span class="tag">Conversion</span>
+            <h3>Lead capture + CTAs</h3>
+            <p>Forms, click-to-call, map, and frictionless contact.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="sectionTitle">
+      <div class="eyebrow">Process</div>
+      <h2>Simple process. Fast delivery.</h2>
+      <p class="desc">No endless calls. No months-long timelines. We ship.</p>
+    </div>
+
+    <div class="cards3">
+      <div class="mini">
+        <span class="tag">1</span>
+        <h3>Strategy</h3>
+        <p>Offer, CTA, structure. 20–30 minutes. Done.</p>
+      </div>
+      <div class="mini">
+        <span class="tag">2</span>
+        <h3>Build</h3>
+        <p>Design + development. Modern, clean, mobile-first.</p>
+      </div>
+      <div class="mini">
+        <span class="tag">3</span>
+        <h3>Launch</h3>
+        <p>Go live, then iterate if you want ongoing care.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILD -->
+  <section id="builds">
+    <div class="sectionTitle">
+      <div class="eyebrow">What we build</div>
+      <h2>Made for real businesses.</h2>
+      <p class="desc">Trades, service companies, local pros, B2B suppliers, restaurants—if you need inbound, this fits.</p>
+    </div>
+
+    <div class="cards3">
+      <div class="mini">
+        <span class="tag">Trades</span>
+        <h3>HVAC · Plumbing · Electrical · Roofing</h3>
+        <p>Service areas, reviews, before/after, quote-first structure.</p>
+      </div>
+      <div class="mini">
+        <span class="tag">B2B</span>
+        <h3>Suppliers · Dealers · Distributors</h3>
+        <p>Catalog-style pages + inquiry workflow that closes.</p>
+      </div>
+      <div class="mini">
+        <span class="tag">Local</span>
+        <h3>Professional services</h3>
+        <p>Credibility-forward layout that feels premium, not templated.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="sectionTitle">
+      <div class="eyebrow">Pricing</div>
+      <h2>Transparent ranges. No surprises.</h2>
+      <p class="desc">Exact quote after a quick intake. If it’s not a fit, I’ll tell you.</p>
+    </div>
+
+    <div class="pricing">
+      <div class="tier">
+        <span class="tag">Starter</span>
+        <h3>Landing Page</h3>
+        <div class="price">$1,250+</div>
+        <ul>
+          <li>Single-page conversion layout</li>
+          <li>Lead capture + click-to-call</li>
+          <li>Mobile-first build</li>
+        </ul>
+      </div>
+
+      <div class="tier featured">
+        <span class="tag">Most Popular</span>
+        <h3>5-Page Business Site</h3>
+        <div class="price">$2,500+</div>
+        <ul>
+          <li>Home + Services + About + Contact + FAQ</li>
+          <li>Conversion-first sections</li>
+          <li>Local-ready SEO foundation</li>
+        </ul>
+      </div>
+
+      <div class="tier">
+        <span class="tag">Ongoing</span>
+        <h3>Care Plan</h3>
+        <div class="price">$99–$249/mo</div>
+        <ul>
+          <li>Edits & small updates</li>
+          <li>Performance/uptime checks</li>
+          <li>Basic SEO tune-ups</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="noteBox">
+      <strong>Important:</strong> If you price yourself at $800, you’ll attract tire-kickers and “one more change” people.
+      Don’t do it. Charge like a professional.
+    </div>
+  </section>
+
+  <!-- CONTACT (REAL NETLIFY FORM) -->
+  <section id="contact">
+    <div class="sectionTitle">
+      <div class="eyebrow">Contact</div>
+      <h2>Start your project.</h2>
+      <p class="desc">This form actually captures leads (Netlify Forms). No fake “Received!” button.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3 style="margin:0 0 10px;">Project Intake</h3>
+        <p class="desc" style="margin-bottom:0;">Tell me what you do and what you want the site to accomplish.</p>
+
+        <!-- Netlify Forms -->
+        <form name="project-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="project-intake" />
+          <p style="display:none;">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="row2">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+
+          <div>
+            <label for="business">Business name</label>
+            <input id="business" name="business" type="text" required />
+          </div>
+
+          <div class="row2">
+            <div>
+              <label for="type">Business type</label>
+              <select id="type" name="business_type" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Trade / Contractor</option>
+                <option>Service Business</option>
+                <option>Dealer / Supplier / B2B</option>
+                <option>Restaurant / Bar</option>
+                <option>Professional Services</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="budget">Budget</label>
+              <select id="budget" name="budget" required>
+                <option value="" disabled selected>Select one</option>
+                <option>$1,250–$2,000</option>
+                <option>$2,000–$4,000</option>
+                <option>$4,000+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="details">Project details</label>
+            <textarea id="details" name="details" placeholder="What do you do? What pages do you need? Calls/quotes/bookings?" required></textarea>
+          </div>
+
+          <button class="btn primary" type="submit" style="width:100%; justify-content:center;">Send →</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 10px;">Direct</h3>
+        <p class="desc">Update these with your real info.</p>
+
+        <div class="list">
+          <div class="li">
+            <div class="check">☎</div>
+            <div>
+              <h3>Phone</h3>
+              <p style="margin:0;"><a href="tel:+18655551234">(865) 555-1234</a></p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">@</div>
+            <div>
+              <h3>Email</h3>
+              <p style="margin:0;"><a href="mailto:hello@misedigitalco.com">hello@misedigitalco.com</a></p>
+            </div>
+          </div>
+          <div class="li">
+            <div class="check">⌁</div>
+            <div>
+              <h3>Location</h3>
+              <p style="margin:0;">Knoxville, TN · Serving nationwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <a class="btn" href="#home">Back to top ↑</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>© <span id="year"></span> Mise Digital. All rights reserved.</div>
+      <div>Everything in its place.</div>
+    </footer>
+  </section>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
