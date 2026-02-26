@@ -1,1 +1,1 @@
-# misedigital-site
+# ghostdigital-site
