@@ -138,6 +138,7 @@
             <li>Lead-Capture Architecture</li>
             <li>Mobile-Optimized Layouts</li>
             <li>Delivered in 7–10 Days</li>
+            <li>1 revision round before launch</li>
           </ul>
           <button type="button" class="btn btn-primary" id="select-build-btn">Select Build</button>
         </div>
@@ -147,12 +148,15 @@
           <h3>Site Care</h3>
           <div class="price">$125<span>/mo</span></div>
           <ul>
-            <li>Managed Hosting</li>
+            <li>Managed hosting</li>
+            <li>Uptime monitoring</li>
             <li>Lead form monitoring</li>
-            <li>Up to 2 small edits per month</li>
-            <li>Email support (1 business day)</li>
+            <li>Minor content updates (up to 30 minutes/month)</li>
+            <li>Email support (1 business day response)</li>
+            <li>Larger updates quoted separately</li>
           </ul>
           <button type="button" class="btn btn-secondary" id="add-care-btn">Add Care +$125/mo</button>
+          <p style="color:var(--text-muted); font-size:0.75rem; text-align:center; margin-top:12px;">Requires Website Build</p>
         </div>
       </div>
     </section>
@@ -208,82 +212,81 @@
   </div>
 
   <script>
-    // Persistent state
+    // State Variables
     let buildSelected = false;
     let careAdded = false;
-
-    // Pending (modal-confirm) state
     let pendingBuildSelection = false;
     let pendingCareAddition = false;
 
+    // Elements
     const selectBuildBtn = document.getElementById('select-build-btn');
     const addCareBtn = document.getElementById('add-care-btn');
-
     const modal = document.getElementById('packageModal');
     const modalContent = document.getElementById('modalContent');
     const modalTitle = document.getElementById('modalTitle');
     const modalMessage = document.getElementById('modalMessage');
     const modalClose = document.getElementById('modalClose');
-
     const hiddenInput = document.getElementById('package-hidden-input');
     const displayPill = document.getElementById('selected-package-display');
     const pillContainer = document.getElementById('selection-pill-container');
     const nameField = document.getElementById('full-name');
 
+    /**
+     * Updates the UI based on the current committed states
+     */
     function updateUI() {
-      // If build not selected, keep form value empty and reset care
-      if (!buildSelected) {
-        hiddenInput.value = "Unspecified";
-        pillContainer.style.display = "none";
-
-        selectBuildBtn.classList.add("btn-primary");
-        selectBuildBtn.classList.remove("btn-selected");
-        selectBuildBtn.innerText = "Select Build";
-
-        careAdded = false;
-        addCareBtn.classList.remove("btn-added");
-        addCareBtn.innerText = "Add Care +$125/mo";
-        return;
+      // 1. Determine Selection String
+      let selectionString = "Unspecified";
+      if (buildSelected) {
+        selectionString = careAdded ? "Website Build + Care" : "Website Build";
       }
 
-      // Build is selected:
-      let text = "Website Build";
-      if (careAdded) text = "Website Build + Care";
-
-      hiddenInput.value = text;
-      displayPill.innerText = text;
-      pillContainer.style.display = "block";
-
-      selectBuildBtn.classList.remove("btn-primary");
-      selectBuildBtn.classList.add("btn-selected");
-      selectBuildBtn.innerText = "Build Selected ✓";
-
-      if (careAdded) {
-        addCareBtn.classList.add("btn-added");
-        addCareBtn.innerText = "Care Added ✓";
+      // 2. Update Form & Pill
+      hiddenInput.value = selectionString;
+      if (buildSelected) {
+        displayPill.innerText = selectionString;
+        pillContainer.style.display = "block";
       } else {
-        addCareBtn.classList.remove("btn-added");
+        pillContainer.style.display = "none";
+      }
+
+      // 3. Update Website Build Button
+      if (buildSelected) {
+        selectBuildBtn.innerText = "Build Selected ✓";
+        selectBuildBtn.classList.add("btn-selected");
+        selectBuildBtn.classList.remove("btn-primary");
+      } else {
+        selectBuildBtn.innerText = "Select Build";
+        selectBuildBtn.classList.remove("btn-selected");
+        selectBuildBtn.classList.add("btn-primary");
+      }
+
+      // 4. Update Site Care Button
+      if (careAdded) {
+        addCareBtn.innerText = "Care Added ✓";
+        addCareBtn.classList.add("btn-added");
+        addCareBtn.classList.remove("btn-secondary");
+      } else {
         addCareBtn.innerText = "Add Care +$125/mo";
+        addCareBtn.classList.remove("btn-added");
+        addCareBtn.classList.add("btn-secondary");
       }
     }
 
-    function showModal(title, message) {
-      modalTitle.innerText = title;
-      modalMessage.innerText = message;
-      modal.style.display = 'flex';
-      setTimeout(() => modalContent.classList.add('active'), 10);
-    }
-
-    // Commit pending changes and scroll
+    /**
+     * Commits pending choices to state and closes modal
+     */
     function handleContinue() {
       if (pendingBuildSelection) buildSelected = true;
       if (pendingCareAddition) careAdded = true;
 
+      // Clear pending
       pendingBuildSelection = false;
       pendingCareAddition = false;
 
       updateUI();
 
+      // Smooth transition to form
       modalContent.classList.remove('active');
       setTimeout(() => {
         modal.style.display = 'none';
@@ -292,59 +295,79 @@
       }, 300);
     }
 
-    // Close modal without committing
+    /**
+     * Dismisses modal without committing changes
+     */
     function dismissModal() {
       pendingBuildSelection = false;
       pendingCareAddition = false;
-
       modalContent.classList.remove('active');
       setTimeout(() => {
         modal.style.display = 'none';
       }, 300);
     }
 
-    // Select Build → modal confirms build selection
+    /**
+     * Opens modal with specific text
+     */
+    function openModal(title, message) {
+      modalTitle.innerText = title;
+      modalMessage.innerText = message;
+      modal.style.display = 'flex';
+      setTimeout(() => modalContent.classList.add('active'), 10);
+    }
+
+    // --- Listeners ---
+
     selectBuildBtn.addEventListener('click', () => {
-      pendingBuildSelection = true;
-
-      const msg = careAdded
-        ? "You've selected Website Build (with Site Care). Click Continue to complete the intake form."
-        : "You've selected the Website Build package. Click Continue to complete the intake form and start your 7–10 day countdown.";
-
-      showModal("Selection Confirmed", msg);
+      if (buildSelected) {
+        // Toggle OFF
+        buildSelected = false;
+        careAdded = false;
+        pendingBuildSelection = false;
+        pendingCareAddition = false;
+        updateUI();
+      } else {
+        // Show selection modal
+        pendingBuildSelection = true;
+        openModal(
+          "Selection Confirmed", 
+          "You've selected the Website Build package. Click Continue to complete the intake form and start your 7–10 day countdown."
+        );
+      }
     });
 
-    // Add Care:
-    // - If build NOT selected → modal will select Build + Care on Continue
-    // - If build selected → toggle immediately
     addCareBtn.addEventListener('click', () => {
-      if (!buildSelected) {
+      if (buildSelected) {
+        // Simple toggle if build is already committed
+        careAdded = !careAdded;
+        updateUI();
+      } else {
+        // Require build via modal
         pendingBuildSelection = true;
         pendingCareAddition = true;
-        showModal(
-          "Website Build Required",
+        openModal(
+          "Website Build Required", 
           "Site Care is an add-on. Click Continue to select Website Build + Care and complete the intake form."
         );
-        return;
       }
-
-      careAdded = !careAdded;
-      updateUI();
     });
 
     modalClose.onclick = handleContinue;
 
+    // Overlay Close
     modal.addEventListener('click', (e) => {
       if (e.target === modal) dismissModal();
     });
 
+    // Keyboard Close
     window.addEventListener('keydown', (e) => {
       if (e.key === "Escape" && modal.style.display === 'flex') {
         dismissModal();
       }
     });
 
-    // Initial sync
+    // Initial Sync
     updateUI();
   </script>
 </body>
