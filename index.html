@@ -38,16 +38,16 @@
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); font-weight: 900; letter-spacing: 0.15em; font-size: 0.9rem; }
         .logo svg { filter: drop-shadow(0 0 8px var(--accent-glow)); }
 
-        /* Sections */
-        section { padding: 120px 0; }
-        .hero { padding-top: 80px; }
-        
         /* Buttons */
         .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border: none; cursor: pointer; font-size: 0.95rem; }
         .btn-primary { background: var(--accent); color: #000; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
         .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
         .btn-secondary:hover { border-color: var(--accent); background: var(--bg-alt); }
+        
+        /* Toggle State Styles */
+        .btn-added { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+        .btn-added::before { content: "✓ "; }
 
         /* Pricing Card Grid */
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-top: 48px; }
@@ -105,7 +105,7 @@
             <span class="eyebrow">Knoxville, Tennessee</span>
             <h1>Websites that turn <br><span style="color: var(--accent);">clicks into calls.</span></h1>
             <p class="lead">We build premium, conversion-focused websites for trades and B2B suppliers. No generic templates—just a professional site that earns trust and books jobs.</p>
-            <a href="#pricing" class="btn btn-primary">See Packages</a>
+            <a href="#pricing" class="btn btn-primary">See Pricing</a>
         </section>
 
         <section id="problem" class="container">
@@ -121,8 +121,8 @@
             <span class="eyebrow">Investment</span>
             <h2>Simple, fixed pricing.</h2>
             <div class="pricing-grid">
-                <div class="card">
-                    <span class="eyebrow">One-Time</span>
+                <div class="card featured" id="card-build">
+                    <span class="eyebrow">Base Purchase</span>
                     <h3>Website Build</h3>
                     <div class="price">$1,500</div>
                     <ul>
@@ -131,19 +131,19 @@
                         <li>Mobile-Optimized Layouts</li>
                         <li>Delivered in 7–10 Days</li>
                     </ul>
-                    <button type="button" class="btn btn-secondary pkg-trigger" data-package="Website Build">Select Build</button>
+                    <button type="button" class="btn btn-primary" id="select-build-btn">Select Build</button>
                 </div>
-                <div class="card featured">
-                    <span class="eyebrow">Monthly</span>
+                <div class="card" id="card-care">
+                    <span class="eyebrow">Optional Add-On</span>
                     <h3>Site Care</h3>
                     <div class="price">$125<span>/mo</span></div>
                     <ul>
-                        <li>Hosting</li>
+                        <li>Managed Hosting</li>
                         <li>Lead form monitoring</li>
                         <li>Up to 2 small edits per month</li>
-                        <li>Email support (1 business day response)</li>
+                        <li>Email support (1 business day)</li>
                     </ul>
-                    <button type="button" class="btn btn-primary pkg-trigger" data-package="Site Care">Select Care Plan</button>
+                    <button type="button" class="btn btn-secondary" id="add-care-btn">Add Care +$125/mo</button>
                 </div>
             </div>
         </section>
@@ -189,16 +189,23 @@
 
     <div class="modal-overlay" id="packageModal">
         <div class="modal" id="modalContent">
-            <h3>Selection Confirmed</h3>
+            <h3 id="modalTitle">Selection Confirmed</h3>
             <p id="modalMessage">You've selected the Website Build package. Let's get a few details to start your 7–10 day countdown.</p>
             <button type="button" class="btn btn-primary" id="modalClose" style="width: 100%;">Continue to Form</button>
         </div>
     </div>
 
     <script>
-        const triggers = document.querySelectorAll('.pkg-trigger');
+        // State management
+        let buildSelected = false;
+        let careAdded = false;
+
+        const selectBuildBtn = document.getElementById('select-build-btn');
+        const addCareBtn = document.getElementById('add-care-btn');
+        
         const modal = document.getElementById('packageModal');
         const modalContent = document.getElementById('modalContent');
+        const modalTitle = document.getElementById('modalTitle');
         const modalMessage = document.getElementById('modalMessage');
         const modalClose = document.getElementById('modalClose');
         
@@ -207,31 +214,74 @@
         const pillContainer = document.getElementById('selection-pill-container');
         const nameField = document.getElementById('full-name');
 
+        function updateFormSelection() {
+            let text = "Website Build";
+            if (careAdded) text = "Website Build + Care";
+            
+            hiddenInput.value = text;
+            displayPill.innerText = text;
+            pillContainer.style.display = 'block';
+        }
+
+        function showModal(title, message) {
+            modalTitle.innerText = title;
+            modalMessage.innerText = message;
+            modal.style.display = 'flex';
+            setTimeout(() => modalContent.classList.add('active'), 10);
+        }
+
         function closeModal() {
             modalContent.classList.remove('active');
             setTimeout(() => {
                 modal.style.display = 'none';
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                setTimeout(() => nameField.focus(), 800);
+                if (buildSelected) {
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => nameField.focus(), 800);
+                }
             }, 300);
         }
 
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const choice = trigger.getAttribute('data-package');
-                
-                hiddenInput.value = choice;
-                displayPill.innerText = choice;
-                pillContainer.style.display = 'block';
-                
-                modalMessage.innerText = `You've selected: ${choice}. Click continue to provide your project details. We deliver within 7–10 days of receiving your basics.`;
-                
-                modal.style.display = 'flex';
-                setTimeout(() => modalContent.classList.add('active'), 10);
-            });
+        // Action: Select Build
+        selectBuildBtn.addEventListener('click', () => {
+            buildSelected = true;
+            updateFormSelection();
+            
+            const careText = careAdded ? " (with Site Care Add-on)" : "";
+            showModal("Selection Confirmed", `You've selected the Website Build${careText}. Let's get a few details to start your 7–10 day countdown.`);
         });
 
-        modalClose.addEventListener('click', closeModal);
+        // Action: Add Care (Toggle)
+        addCareBtn.addEventListener('click', () => {
+            if (!buildSelected) {
+                // Dependency check
+                showModal("Website Build Required", "Select the Website Build first. Site Care is only available as an add-on to our professional builds.");
+                // Change modal button to select build for them
+                modalClose.onclick = () => {
+                    buildSelected = true;
+                    careAdded = true;
+                    addCareBtn.classList.add('btn-added');
+                    addCareBtn.innerText = "Care Added ✓";
+                    updateFormSelection();
+                    closeModal();
+                    // Reset the onclick for future use
+                    modalClose.onclick = closeModal;
+                };
+                return;
+            }
+
+            // Normal Toggle
+            careAdded = !careAdded;
+            if (careAdded) {
+                addCareBtn.classList.add('btn-added');
+                addCareBtn.innerText = "Care Added ✓";
+            } else {
+                addCareBtn.classList.remove('btn-added');
+                addCareBtn.innerText = "Add Care +$125/mo";
+            }
+            updateFormSelection();
+        });
+
+        modalClose.onclick = closeModal;
 
         // Close modal on background click
         modal.addEventListener('click', (e) => {
